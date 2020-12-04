@@ -1,3 +1,5 @@
+require "byebug"
+
 class PolyTreeNode
     attr_reader :value, :parent, :children
     attr_writer :parent
@@ -22,5 +24,32 @@ class PolyTreeNode
             return nil
         end
     end
+
+    def add_child(child)
+        if !child.children.include?(self)
+            child.parent=(self)
+        end
+    end
+
+    def remove_child(child)
+        if !self.children.include?(child)
+            raise "I'm not a child"
+        else
+            child.parent=(nil)
+        end
+    end
+
+    def dfs(target)
+        # debugger
+        return self if target == self.value
+        self.children.each do |child|
+            result = child.dfs(target)
+            if result != nil
+                return result
+            end
+        end
+        nil
+    end
+
 
 end
