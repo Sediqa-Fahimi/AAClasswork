@@ -51,5 +51,18 @@ class PolyTreeNode
         nil
     end
 
+    def bfs(target)
+        # debugger
+        array = [self]
+        while array.length > 0 
+            check = array.shift
+            if check.value == target
+                return check
+            end
+            array.concat(check.children)
+        end
+        nil
+    end
+
 
 end
