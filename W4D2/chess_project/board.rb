@@ -21,6 +21,7 @@ class Board
     row, col = pos
     @board[row][col] = val
   end
+
   def populate
     # debugger
     @board.each_with_index do |row,i1|
@@ -50,6 +51,3 @@ class Board
   # end
 
 end
-
-board = Board.new
-p board
