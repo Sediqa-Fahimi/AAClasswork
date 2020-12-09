@@ -5,6 +5,7 @@ require "byebug"
 class Board
 
   def initialize
+    # debugger
     @null_piece = NullPiece.instance
     @board = Array.new(8) {Array.new(8,@null_piece)}
     populate
@@ -26,8 +27,10 @@ class Board
     # debugger
     @board.each_with_index do |row,i1|
       row.each_with_index do |col,i2|
-        if i1 < 1 || i1 > 6
-          self[[i1,i2]] = Piece.new
+        if i1 == 0 || i1 == 1
+          self[[i1,i2]] = Piece.new(:white, @board, [i1,i2])
+        elsif i1 == 6 || i1 == 7
+          self[[i1,i2]] = Piece.new(:black, @board, [i1,i2])
         end
       end
     end
@@ -51,3 +54,6 @@ class Board
   # end
 
 end
+
+board = Board.new
+p board
