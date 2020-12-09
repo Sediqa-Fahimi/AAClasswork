@@ -6,8 +6,10 @@ class Board
 
   def initialize
     @null_piece = NullPiece.instance
-    @board = Array.new(8) {Array.new(8, @null_piece)}
+    @board = Array.new(8) {Array.new(8,@null_piece)}
+    populate
   end
+  
   
   def [](pos)
     row, col = pos
@@ -18,6 +20,16 @@ class Board
     # debugger
     row, col = pos
     @board[row][col] = val
+  end
+  def populate
+    # debugger
+    @board.each_with_index do |row,i1|
+      row.each_with_index do |col,i2|
+        if i1 < 1 || i1 > 6
+          self[[i1,i2]] = Piece.new
+        end
+      end
+    end
   end
   
   def move_piece(start_pos, end_pos) #add color as an argument later
@@ -32,9 +44,12 @@ class Board
     self[end_pos] 
   end
 
+
   # def valid_pos?(pos)
 
   # end
 
 end
 
+board = Board.new
+p board
