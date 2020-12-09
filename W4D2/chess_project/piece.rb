@@ -3,7 +3,7 @@ class Piece
   def initialize(color, board, pos)
     @color = color
     @board = board
-    @pos = pos
+    @pos = pos #1D array to hold the current position
   end
 
   # def to_s
@@ -14,49 +14,12 @@ class Piece
     false
   end
 
+  def valid_moves
+    #filters the moves from the rook/bishop moves method
+  end
+
 end
 
-class Rook < Piece
-  
 
-  # def initialize(color,board,pos)
-  #   super(color,board,pos)
-  # end
-  def symbol 
-    return :R
-  end
-  private 
-  def move_dirs
-    return "horizontal"
-  end
-end
 
-class Bishop < Piece
-  
 
-  # def initialize(color,board,pos)
-  #   super(color,board,pos)
-  # end
-  def symbol 
-    return :B
-  end
-  private 
-  def move_dirs
-    return "diagonal"
-  end
-end
-
-class Queen < Piece
-  
-
-  # def initialize(color,board,pos)
-  #   super(color,board,pos)
-  # end
-  def symbol 
-    return :Q
-  end
-  private 
-  def move_dirs
-    return "horizontal and diagonal"
-  end
-end
