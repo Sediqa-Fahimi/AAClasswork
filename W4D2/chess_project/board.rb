@@ -21,7 +21,7 @@ class Board
   end
   
   def move_piece(start_pos, end_pos) #add color as an argument later
-    raise "There's no piece at #{start_pos}" if self[start_pos].nil? 
+    raise "There's no piece at #{start_pos}" if self[start_pos].empty? 
     #1) when the end_pos is not empty
     #2) When the end_pos is not a valid position
     raise "#{end_pos} is not empty" if !self[end_pos].empty?
