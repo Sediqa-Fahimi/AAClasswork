@@ -1,5 +1,7 @@
+
+
 class Piece
-  attr_reader :pos
+  attr_reader :pos, :board, :color
   def initialize(color, board, pos)
     # debugger
     @color = color
@@ -11,7 +13,7 @@ class Piece
   end
 
   def empty?
-    return true if @board[@pos].empty?
+    # debugger
     false
   end
 
@@ -20,7 +22,5 @@ class Piece
   end
 
 end
-
-
 
 

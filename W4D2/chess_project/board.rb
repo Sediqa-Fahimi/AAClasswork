@@ -1,5 +1,6 @@
 require_relative "nullpiece"
 require_relative "piece"
+require_relative "rook"
 require "byebug"
 
 class Board
@@ -28,9 +29,9 @@ class Board
     @board.each_with_index do |row,i1|
       row.each_with_index do |col,i2|
         if i1 == 0 || i1 == 1
-          self[[i1,i2]] = Piece.new(:white, @board, [i1,i2])
+          self[[i1,i2]] = Piece.new(:white, self, [i1,i2])
         elsif i1 == 6 || i1 == 7
-          self[[i1,i2]] = Piece.new(:black, @board, [i1,i2])
+          self[[i1,i2]] = Piece.new(:black, self, [i1,i2])
         end
       end
     end
@@ -55,5 +56,9 @@ class Board
 
 end
 
+# board = Board.new
+# p board
+
 board = Board.new
-p board
+rook = Rook.new(:white, board, [4,5])
+p rook.moves

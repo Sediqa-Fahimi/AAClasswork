@@ -14,3 +14,6 @@ class Bishop < Piece
     return "diagonal"
   end
 end
+
+
+
