@@ -11,7 +11,26 @@ module Slideable
     end
 
     def moves
-      grow_unblocked_moves_in_dir(1,0)
+        directions = move_dirs
+        all_possible_moves = []
+        case directions
+        when "horizontal"
+            HORIZONTAL_DIRS.each do |direction|
+                all_possible_moves += grow_unblocked_moves_in_dir(direction[0],direction[1])
+            end
+        when "diagonal"
+            DIAGONAL_DIRS.each do |direction|
+                all_possible_moves += grow_unblocked_moves_in_dir(direction[0],direction[1])
+            end
+        when "horizontal and diagonal"
+            HORIZONTAL_DIRS.each do |direction|
+                all_possible_moves += grow_unblocked_moves_in_dir(direction[0],direction[1])
+            end
+            DIAGONAL_DIRS.each do |direction|
+                all_possible_moves += grow_unblocked_moves_in_dir(direction[0],direction[1])
+            end
+        end
+        all_possible_moves
     end
 
 
@@ -49,25 +68,4 @@ module Slideable
 
 end
 
-# HORIZONTAL_DIRS = [[-1,0],[0,1],[1,0],[0,-1]]
-# # move_dirs = "horizontal"
-
-# def grow_unblocked_moves_in_dir(dx, dy)
-#     unblocked_moves = []
-
-#     pos = [5,5]
-#     while true
-#         pair = [pos[0]+dx, pos[1]+dy]
-#         pos = pair
-#         if !((pos[0] >= 0 && pos[0] <= 7) && (pos[1] >= 0 && pos[1] <= 7))
-#             return unblocked_moves
-#         end
-#         unblocked_moves << pair
-
-#     end
-
-#     unblocked_moves
-# end
-
-# p grow_unblocked_moves_in_dir(-1,0)
 

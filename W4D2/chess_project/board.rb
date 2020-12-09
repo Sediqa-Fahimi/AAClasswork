@@ -56,9 +56,6 @@ class Board
 
 end
 
-# board = Board.new
-# p board
-
 board = Board.new
-rook = Rook.new(:white, board, [4,5])
+rook = Rook.new(:white, board, [4,3])
 p rook.moves
