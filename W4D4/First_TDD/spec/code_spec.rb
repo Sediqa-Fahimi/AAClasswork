@@ -11,5 +11,12 @@ describe "TDD Project" do
             expect { arr1.my_uniq }.not_to change { arr1 }
         end
     end
+
+    describe "Array#two_sum" do
+        let(:array) { [-1,0,2,-2,1] }
+        it "should return a 2d array including indexes" do
+            expect(array.two_sum).to eq([[0, 4], [2, 3]])
+        end
+    end
 end
 
