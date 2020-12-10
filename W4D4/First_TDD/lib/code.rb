@@ -15,3 +15,14 @@ class Array
         return new_array
     end
 end
+
+def my_transpose(array)
+    new_array = Array.new(array.length) { [] }
+    (0...array.length).each do |i|
+        (0...array.length).each do |j|
+            new_array[i] << array[j][i]
+        end
+    end
+
+    return new_array
+end
