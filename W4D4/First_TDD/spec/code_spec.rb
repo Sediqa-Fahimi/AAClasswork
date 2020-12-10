@@ -34,5 +34,18 @@ describe "TDD Project" do
             expect(matrix).not_to receive(:transpose)
         end
     end
+    describe "stock_picker" do 
+        let(:stocks) { [1,2,3,4,5]}
+        before(:each) { stocks.shuffle! }
+        it "should only output two days" do 
+            expect(stock_picker(stocks).length).to eq(2)
+        end
+        it "sell dates should be after buy dates" do 
+            expect do 
+                buy_date, sell_date = stock_picker(stocks)
+                buy_date < sell_date
+            end.to be true
+        end
+    end
 end
 

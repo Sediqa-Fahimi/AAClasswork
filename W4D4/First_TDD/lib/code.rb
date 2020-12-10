@@ -23,6 +23,5 @@ def my_transpose(array)
             new_array[i] << array[j][i]
         end
     end
-
     return new_array
 end
