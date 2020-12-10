@@ -7,9 +7,6 @@ require "byebug"
 class Rook < Piece
   
   include Slideable
-  # def initialize(color,board,pos)
-  #   super(color,board,pos)
-  # end
 
   def symbol 
     return :R

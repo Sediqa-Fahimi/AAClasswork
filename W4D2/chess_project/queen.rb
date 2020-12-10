@@ -1,11 +1,11 @@
 require_relative "piece"
+require_relative "slideable"
+
 
 class Queen < Piece
   
-
-  # def initialize(color,board,pos)
-  #   super(color,board,pos)
-  # end
+  include Slideable
+ 
   def symbol 
     return :Q
   end
