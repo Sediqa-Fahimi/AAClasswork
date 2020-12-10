@@ -2,6 +2,7 @@ require_relative "nullpiece"
 require_relative "piece"
 require_relative "rook"
 require_relative "knight"
+require_relative "king"
 require "byebug"
 
 class Board
@@ -60,5 +61,5 @@ end
 board = Board.new
 # rook = Rook.new(:white, board, [4,3])
 # p rook.moves
-knight = Knight.new(:white, board, [4,3])
-p knight.moves
+king = King.new(:white, board, [0,4])
+p king.moves
