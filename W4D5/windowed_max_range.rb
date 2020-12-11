@@ -43,4 +43,84 @@ class MyQueue
     end
 end
 
-class 
+class MyStack
+    def initialize
+        @store = []
+    end
+
+    def peek
+        @store[-1] unless empty?
+    end
+
+    def size
+        @store.length
+    end
+
+    def empty?
+        @store.length == 0
+    end
+
+    def pop
+        @store.pop unless empty?
+    end
+
+    def push(ele)
+        @store.push(ele)
+    end
+end
+
+class StackQueue 
+    def initialize
+        @push_stack = MyStack.new
+        @pop_stack = MyStack.new
+    end
+
+    def size
+        @push_stack.size + @pop_stack.size
+    end
+
+    def empty?
+        size == 0
+    end
+
+    def enqueue(ele)
+        @push_stack.push(ele)
+    end
+
+    def dequeue
+        if @pop_stack.empty?
+            # get the element from push stack
+            # @pop_stack.push(@push_stack.pop) until @push_stack.empty?
+            @push_stack.size.times{ @pop_stack.push(@push_stack.pop) }
+        end
+        @pop_stack.pop
+        #enqueue onto push stack
+        # so how do we move elements from push stack to pop stack to be popped?
+    end
+end
+
+
+class MinMaxStack < MyStack
+    def initialize
+        super
+        @max_stack = []
+    end
+    def push(ele)
+        super
+        if @max_stack.empty?
+            @max_stack << ele
+        elsif @max_stack.last > ele
+            @max_stack << @max_stack.last
+        else
+            @max_stack << ele
+        end
+    end
+    def pop
+        @max_stack.pop
+        super
+    end
+    def max
+        @max_stack.last
+    end
+
+end
