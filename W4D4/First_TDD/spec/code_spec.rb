@@ -35,17 +35,20 @@ describe "TDD Project" do
         end
     end
     describe "stock_picker" do 
-        let(:stocks) { [1,2,3,4,5]}
-        before(:each) { stocks.shuffle! }
-        it "should only output two days" do 
-            expect(stock_picker(stocks).length).to eq(2)
+        let(:stocks) { [70,75,65] } 
+
+        it "should return nil if there is no sell date" do 
+            expect(stock_picker(stocks)).to be(nil)
         end
-        it "sell dates should be after buy dates" do 
-            expect do 
-                buy_date, sell_date = stock_picker(stocks)
-                buy_date < sell_date
-            end.to be true
+        it 'should return the proper output' do
+            expect(stock_picker([70,75,65,100])).to eq([2,3])
         end
+        # it "sell dates should be after buy dates" do 
+        #     expect do 
+        #         buy_date, sell_date = stock_picker(stocks)
+        #         buy_date < sell_date
+        #     end.to be true
+        # end
     end
 end
 

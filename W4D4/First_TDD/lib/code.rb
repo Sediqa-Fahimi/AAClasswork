@@ -1,3 +1,4 @@
+require 'byebug'
 class Array
     def my_uniq
        new_array = []
@@ -24,4 +25,14 @@ def my_transpose(array)
         end
     end
     return new_array
+end
+
+def stock_picker(array)
+    # min price is day to buy'
+    buy_day   = array.index(array.min) unless array.index(array.min) == array.length-1
+    max_price = array[buy_day+1..-1].max
+    return nil if max_price.nil?
+    sell_day  = array.index(max_price)
+
+    return [buy_day,sell_day]
 end
