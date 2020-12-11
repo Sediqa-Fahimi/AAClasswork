@@ -17,7 +17,7 @@ end
 
 
 
-# O(N^2)
+# speed: O(N^3) # Sapce Complexity: O(N^3)
 def largest_contiguous_subsum(array)
     new_arr = []
     array.each_with_index do |el1, i1|
@@ -40,7 +40,7 @@ end
 #subarrays <- checking all subarrays is O(N^2) 
 #inject
 # require "byebug"
-# O(N)
+# Speed : O(N)   # space: O(1) 
 def largest_contiguous_subsum2(array)
     #debugger
     largest_sum = array.first
