@@ -144,3 +144,23 @@ class MinMaxStackQueue < StackQueue
     end
 
 end
+
+
+#O(N) time ; O(N) space
+def good_windowed_max_range(array, window_size)
+    current_max_range = nil
+    mmsq = MinMaxStackQueue.new
+    array.each do |ele|
+        mmsq.dequeue if mmsq.size == window_size
+        mmsq.enqueue(ele)
+        current_range = mmsq.max - mmsq.min
+        current_max_range = current_range if current_max_range.nil? || current_range > current_max_range
+    end
+    current_max_range
+end
+
+
+p good_windowed_max_range([1, 0, 2, 5, 4, 8], 2) == 4 # 4, 8
+p good_windowed_max_range([1, 0, 2, 5, 4, 8], 3) == 5 # 0, 2, 5
+p good_windowed_max_range([1, 0, 2, 5, 4, 8], 4) == 6 # 2, 5, 4, 8
+p good_windowed_max_range([1, 3, 2, 5, 4, 8], 5) == 6 # 3, 2, 5, 4, 8
