@@ -101,26 +101,46 @@ end
 
 
 class MinMaxStack < MyStack
-    def initialize
-        super
-        @max_stack = []
-    end
+   
     def push(ele)
-        super
-        if @max_stack.empty?
-            @max_stack << ele
-        elsif @max_stack.last > ele
-            @max_stack << @max_stack.last
+        if empty?
+            super({value: ele, max: ele, min: ele})
         else
-            @max_stack << ele
+            new_max = [ele , peek[:max]].max
+            new_min = [ele , peek[:min]].min
+            super({value: ele, max: new_max, min: new_min})
         end
     end
     def pop
-        @max_stack.pop
-        super
+        hash = super
+        hash[:value] if !hash.nil?
     end
     def max
-        @max_stack.last
+        hash = peek
+        hash[:max] if !hash.nil?
+    end
+    def min 
+        hash = peek
+        hash[:min] if !hash.nil?
+    end
+
+end
+
+class MinMaxStackQueue < StackQueue
+    def initialize
+        @push_stack = MinMaxStack.new
+        @pop_stack = MinMaxStack.new
+    end
+
+    def max
+        return [@push_stack.max, @pop_stack.max].max if !@push_stack.empty? && !@pop_stack.empty?
+        return @pop_stack.max if @push_stack.empty?
+        @push_stack.max if @pop_stack.empty?
+    end
+    def min 
+        return [@push_stack.min, @pop_stack.min].min if !@push_stack.empty? && !@pop_stack.empty?
+        return @pop_stack.min if @push_stack.empty?
+        @push_stack.min if @pop_stack.empty?
     end
 
 end
