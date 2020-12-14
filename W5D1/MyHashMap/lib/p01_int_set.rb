@@ -1,19 +1,29 @@
 class MaxIntSet
+  attr_accessor :store
   def initialize(max)
+    @max = max
+    @store = []
   end
 
   def insert(num)
+    raise 'Out of bounds' if !is_valid?(num) 
+    @store[num] = true
   end
 
   def remove(num)
+    @store[num] = false if self.include?(num)
   end
 
   def include?(num)
+    return true if @store[num] == true
+    false
   end
 
   private
 
   def is_valid?(num)
+    return false if num >= @max || num < 0
+    true
   end
 
   def validate!(num)
