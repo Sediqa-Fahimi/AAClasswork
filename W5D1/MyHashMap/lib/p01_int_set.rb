@@ -37,12 +37,18 @@ class IntSet
   end
 
   def insert(num)
+    index = num % num_buckets
+    @store[index] = num
   end
 
   def remove(num)
+    index = num % num_buckets
+    @store.delete(num)
   end
 
   def include?(num)
+    return true if @store.include?(num)
+    false
   end
 
   private
