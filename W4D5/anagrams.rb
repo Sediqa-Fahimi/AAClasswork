@@ -28,9 +28,9 @@
 #O(N)
 def fourth_anagram?(str1, str2)
     hash = Hash.new(0)
-    str1.chars.each {|char| hash[char] += 1} #O(N)
+    str1.each_char {|char| hash[char] += 1} #O(N)
     hash2 = Hash.new(0)
-    str2.chars.each {|char| hash2[char] += 1} #O(N)
+    str2.each_char {|char| hash2[char] += 1} #O(N)
     hash == hash2
 end
 p fourth_anagram?("gizmo", "sally")    #=> false
