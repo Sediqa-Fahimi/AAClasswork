@@ -74,10 +74,14 @@ class ResizingIntSet
   end
 
   def insert(num)
-    idx = num % num_buckets
-    if !self.include?(num) 
-      @store[idx] << num
-      @count += 1
+    if @count < num_buckets
+      idx = num % num_buckets
+      if !self.include?(num) 
+        @store[idx] << num
+        @count += 1
+      end
+    else  
+      resize! 
     end
   end
 
@@ -107,29 +111,36 @@ class ResizingIntSet
     @store.length
   end
 
-  def resize!
-    if @count > num_buckets 
-      num_buckets.times { @store << [] }
-      @store.each do |subarr| 
-        subarr.each do |ele| 
-          new_idx = ele % num_buckets
-          @store[new_idx] << ele
-        end
-      end
-    end
-  end
   # def resize!
-  #   if @count > self.num_buckets 
-  #     debugger
-  #     new_size = (self.num_buckets * 2)
-  #     new_arr = Array.new(new_size) { Array.new }
-  #     @store.each do |ele| 
-  #       ele.each do |item| 
-  #         new_idx = item % new_size
-  #         new_arr[new_idx] << item
-  #       end
+  #   num_buckets.times { @store << [] }
+  #   @store.each do |subarr| 
+  #     subarr.each do |ele| 
+  #       new_idx = ele % num_buckets
+  #       @store[new_idx] << ele
   #     end
-  #     new_arr
   #   end
   # end
+  def resize!
+    if @count > self.num_buckets 
+      debugger
+      new_size = (self.num_buckets * 2)
+      new_arr = Array.new(new_size) { Array.new }
+      @store.each do |ele| 
+        ele.each do |item| 
+          new_idx = item % new_size
+          new_arr[new_idx] << item
+        end
+      end
+      new_arr
+    end
+  end
 end
+
+# a = ResizingIntSet.new(5)
+
+# a.insert(1)
+# a.insert(2)
+# a.insert(3)
+# a.insert(4)
+# a.insert(5)
+# a.insert(6)
