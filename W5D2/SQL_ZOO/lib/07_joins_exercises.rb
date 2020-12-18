@@ -115,9 +115,9 @@ def andrews_films_and_leads
     JOIN 
       castings AS lead_castings ON lead_castings.movie_id = movies.id 
     JOIN 
-      actors AS lead_actors ON lead_actors.id = lead_castings.actor_id lead_actors.name = "Julie Andrews" and castings.ord = 1
+      actors AS lead_actors ON lead_actors.id = lead_castings.actor_id
     WHERE 
-      julie_actors.name = "Julie Andrews" AND lead_castings.ord = 1 
+      julie_actors.name = 'Julie Andrews' AND lead_castings.ord = 1 
   SQL
 end
 
