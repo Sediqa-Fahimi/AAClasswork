@@ -22,8 +22,25 @@ def harrison_ford
   # appeared but not as a lead actor
 
   # Movie.select(:id, :title).where(movies: {title: })
-  Movie.joins(:castings).where(ord: "> 1").joins(:actors).where(name: 'Harrison Ford')
-
+  Movie.joins(:castings,:actors)#.where(actors: {name: 'Harrison Ford'}).where(castings: {ord: > 1})
+  # Actor
+  #   .joins(:movies)
+  #   .where(movies: { title: 'Blade Runner' })
+  #   .joins(:castings).select(:id)
+  # SELECT
+  #   movies.title, lead_actors.name
+  # FROM
+  #   movies
+  # JOIN
+  #   castings julie_castings ON julie_castings.movie_id = movies.id
+  # JOIN
+  #   actors julie_actors ON julie_castings.actor_id = julie_actors.id
+  # JOIN
+  #   castings lead_castings ON lead_castings.movie_id = movies.id
+  # JOIN
+  #   actors lead_actors ON lead_castings.actor_id = lead_actors.id
+  # WHERE
+  #   julie_actors.name = 'Julie Andrews' AND lead_castings.ord = 1;
 end
 
 def biggest_cast
