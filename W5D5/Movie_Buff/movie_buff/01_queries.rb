@@ -24,20 +24,7 @@ def harrison_ford
   Movie.select(:id, :title).joins(:actors).where("actors.name = 'Harrison Ford'").where.not('castings.ord = 1')
   # Movie.select(:id, :title).joins(:actors, :castings).where("actors.name = 'Harrison Ford'").where('castings.ord != 1')
 
-  # SELECT
-  #   movies.title, lead_actors.name
-  # FROM
-  #   movies
-  # JOIN
-  #   castings julie_castings ON julie_castings.movie_id = movies.id
-  # JOIN
-  #   actors julie_actors ON julie_castings.actor_id = julie_actors.id
-  # JOIN
-  #   castings lead_castings ON lead_castings.movie_id = movies.id
-  # JOIN
-  #   actors lead_actors ON lead_castings.actor_id = lead_actors.id
-  # WHERE
-  #   julie_actors.name = 'Julie Andrews' AND lead_castings.ord = 1;
+  
 end
 
 def biggest_cast
@@ -76,7 +63,7 @@ def directed_by_one_of(them)
   # Movie.where(yr: years)
   #
   # Find the id and title of all the movies directed by one of 'them'.
-  
+  Movie.select(:id,:title).where('actors.name IN (?)', them).joins(:director).group(:id)
 
 end
 
