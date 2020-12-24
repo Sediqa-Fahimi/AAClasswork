@@ -44,7 +44,7 @@ ol {
 }
 
 input[type="radio"] {
-    -webkit-appearance: none;
+    /* -webkit-appearance: none; */
     width: 27px;
     height: 27px;
     background-image: url(../assets/stars.png);
@@ -70,5 +70,62 @@ ol li:nth-of-type(2n) {
 
 h2 + .user_review {
     border-top: 1px solid black;
+}
+
+
+nav {
+    display: inline-block;
+}
+
+nav ul li {
+    display:  inline-block;
+}
+
+nav ul li a {
+    padding: 20px;
+    display: block;
+} 
+
+body {
+  width: 900px;
+  margin: 0 auto;
+}
+section {
+  width: 700px;
+  display: inline-block;
+}
+aside {
+  width: 180px;
+  display: inline-block;
+  margin-right: 15px;
+  vertical-align: top;
+  
+}
+.ingredients-list li {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+#directions {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+input{
+  display: block;
+}
+label {
+  display: block;
+}
+#expertise {
+  margin: 10px 0 10px 0;
+  display: block;
+}
+#review, #expertise, #name {
+  width: 300px;
+}
+textarea {
+  display: block;
+}
+input[type="submit"]{
+  margin-top: 15px;
 }
 
