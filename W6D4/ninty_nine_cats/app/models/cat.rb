@@ -24,6 +24,6 @@ class Cat < ApplicationRecord
     validates :description, presence: true
     
     def age
-        birth_date.time_ago_in_words
+        time_ago_in_words(birth_date)
     end
 end
