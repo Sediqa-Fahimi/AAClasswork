@@ -16,7 +16,9 @@ class Cat < ApplicationRecord
 
     include ActionView::Helpers::DateHelper
 
+    # COLORS = ["yellow","black","white","gray"]
     @@colors = ["yellow","black","white","gray"]
+    
     validates :color, inclusion: {in: @@colors }, presence: true
     validates :sex, inclusion: {in: %w(M F)}, presence: true
     validates :name, presence: true
@@ -25,5 +27,9 @@ class Cat < ApplicationRecord
     
     def age
         time_ago_in_words(birth_date)
+    end
+
+    def self.colors
+        @@colors
     end
 end

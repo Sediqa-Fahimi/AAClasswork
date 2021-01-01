@@ -2,6 +2,7 @@
     <label> Name:
         <input type= "text" name="cat[name]">
     </label>
+
     <label> Sex:
         <input type= "radio" name="cat[sex]" value="F">
         F
@@ -9,5 +10,22 @@
         M
     </label>
 
+    <label> Color:
+        <select name="cat[color]">
+            <option disabled selected>--SELECT A COLOR--</option>
+            <% Cat.colors.each do |color| %>
+                <option value="<%= color %>"><%= color %></option>
+            <% end %>
+        </select>
+    </label>
 
+    <label> Date:
+        <input type="date" name="cat[birth_date]">
+    </label>
+
+    <label> Description:
+        <textarea name="cat[description]"></textarea>
+    </label>
+
+    <input type="submit" value="Add Cat">
 </form>
