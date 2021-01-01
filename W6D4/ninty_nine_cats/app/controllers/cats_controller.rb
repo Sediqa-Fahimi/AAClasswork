@@ -23,6 +23,10 @@ class CatsController < ApplicationController
             render json: cat.errors.full_messages, status: :unprocessable_entity
         end
     end
+    def edit 
+        @cat = Cat.find(params[:id])
+        render :edit
+    end
 
     private
 
