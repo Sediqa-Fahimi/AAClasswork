@@ -14,4 +14,10 @@ class ApplicationController < ActionController::Base
     return nil if session[:session_token].nil?
     @current_user ||= User.find_by( session_token: session[:session_token] )
   end
+
+  def logout
+    @current_user.reset_session_token! if logged_in?
+    session[:session_token] = nil 
+    @current_user = nil
+  end
 end
