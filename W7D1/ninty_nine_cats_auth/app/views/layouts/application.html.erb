@@ -9,6 +9,20 @@
   </head>
 
   <body>
+    <% if logged_in? %>
+      <h2>Welcome to the cats website <%= current_user.user_name %>!</h2>
+      <form action="<%= session_url %>" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Log Out" >
+      </form>
+    <% else %>
+      <form action="<%= new_session_url %>" method="GET">
+        <input type="submit" value="Log In" >
+      </form>
+      <form action="<%= new_user_url %>" method="GET">
+        <input type="submit" value="Sign Up" >
+      </form>
+    <% end %>
     <%= yield %>
   </body>
 </html>

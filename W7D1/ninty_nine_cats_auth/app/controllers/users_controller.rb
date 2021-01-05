@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-
+    before_action :double_sign_in?, only: [:login, :new]
+    
     def new
         @user = User.new
         render :new

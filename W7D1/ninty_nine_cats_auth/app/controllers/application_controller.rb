@@ -18,4 +18,7 @@ class ApplicationController < ActionController::Base
     def logged_in?
         !!current_user
     end
+    def double_sign_in?
+        redirect_to cats_url if logged_in?
+    end
 end
