@@ -28,7 +28,8 @@ class User < ApplicationRecord
     end
 
     def ensure_session_token
-        self.session_token ||= SecureRandom::urlsafe_base64
+        # self.session_token ||= SecureRandom::urlsafe_base64
+        self.session_token ||= User.generate_session_token
     end
 
     def password=(pw)
