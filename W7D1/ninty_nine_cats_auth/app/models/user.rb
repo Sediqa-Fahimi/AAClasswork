@@ -35,4 +35,8 @@ class User < ApplicationRecord
         BCrypt::Password.new(self.password_digest).is_password?(password)
     end
 
+    has_many :cats,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: :Cat
 end

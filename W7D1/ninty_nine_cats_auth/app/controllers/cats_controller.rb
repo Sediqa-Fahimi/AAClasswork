@@ -15,7 +15,10 @@ class CatsController < ApplicationController
   end
 
   def create
-    @cat = Cat.new(cat_params)
+    cat_details = cat_params
+    user = current_user
+    cat_details[:user_id] = user.id
+    @cat = Cat.new(cat_details)
     if @cat.save
       redirect_to cat_url(@cat)
     else
