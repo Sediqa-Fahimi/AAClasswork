@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <style>
+    </style>
     <title>MusicApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,19 +12,27 @@
   </head>
 
   <body>
-    <% if logged_in? %>
-      <h2>Welcome <%= current_user.email %></h2>
-      <form action=<%= sessions_url %> method="POST">
-        <input type="hidden" name="_method" value="DELETE">
-        <input type="hidden" 
-               name="authenticity_token" 
-               value=<%= form_authenticity_token %>>
-        <input type="submit" value="logout">
-      </form>
-    <% else %>
-      <a href=<%=new_user_url%>>    (☞ﾟヮﾟ)☞ Sign up ☜(ﾟヮﾟ☜)</a>
-      <a href=<%=new_sessions_url%>>(☞ﾟヮﾟ)☞ Sign in ☜(ﾟヮﾟ☜)</a>
-    <% end %>
+    <header>
+      <div>
+        <h2>Music App!</h2>
+        <% if logged_in? %>
+          <h3>Welcome <%= current_user.email %></h3>
+        </div>
+        <form action=<%= sessions_url %> method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <input type="hidden"
+                 name="authenticity_token"
+                 value=<%= form_authenticity_token %>>
+          <input type="submit" value="logout">
+        </form>
+      <% else %>
+        </div>      
+        <div>
+          <a href=<%=new_user_url%>>    (☞ﾟヮﾟ)☞ Sign up ☜(ﾟヮﾟ☜)</a>
+          <a href=<%=new_sessions_url%>>(☞ﾟヮﾟ)☞ Sign in ☜(ﾟヮﾟ☜)</a>
+        </div>
+      <% end %>
+    </header>
     <%= yield %>
 
     <%= flash[:errors] %>
