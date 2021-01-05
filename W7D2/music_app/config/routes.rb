@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   # resources :users
   # resource  :sessions
 
+  
+  #users & sessions
   resources :users, only: [:new, :create, :show]
-
   resource :sessions, only: [:new, :create, :destroy]
+
+  #bands
+  resources :bands
 end
