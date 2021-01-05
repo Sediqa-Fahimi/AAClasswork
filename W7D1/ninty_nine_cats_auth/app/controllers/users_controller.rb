@@ -15,6 +15,18 @@ class UsersController < ApplicationController
             render :new     
        end
     end
+
+    def show
+        @user = User.find_by(id: params[:id])
+        p @user
+        if @user
+            render :show
+        else
+            render plain "User not found"
+        end
+    end
+
+
     private
     def user_params
         params.require(:user).permit(:user_name,:password)
