@@ -5,7 +5,7 @@ class BandsController < ApplicationController
   end
 
   def create
-    @band = Band.new(params[:band][:name])
+    @band = Band.new(name: params[:band][:name])
     if @band.save
       redirect_to band_url(@band)
     else
@@ -31,7 +31,7 @@ class BandsController < ApplicationController
 
   def update
     @band = Band.find_by(id: params[:id])
-    if @band.update(params[:band][:name])
+    if @band.update(name: params[:band][:name])
       redirect_to band_url(@band)
     else
       flash.now[:errors] = ["name can't be blank"] # @band.errors.full_messages}"]

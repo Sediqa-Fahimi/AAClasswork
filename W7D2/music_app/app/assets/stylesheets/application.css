@@ -33,3 +33,11 @@ header a {
   display: flex;
   flex-direction: column;
 }
+.edit-container {
+  display: flex;
+  justify-content: flex-start;
+
+}
+.edit-container form:last-child {
+    margin-left: 20px;
+}
