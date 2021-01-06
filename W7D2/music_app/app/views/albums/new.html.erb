@@ -1,0 +1,21 @@
+
+<form action="<%= albums_url %>" method="POST">
+    
+  <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %>>
+
+  <label>Title:
+    <input type="text" name="album[title]" >
+  </label>
+  <label>Year:
+    <input type="text" name="album[year]" >
+  </label>
+  <label > Band:
+    <select name="" >
+        <option value=""></option>
+        
+    </select>
+    </label>
+  <input type="submit" value="<%= action == :edit ? "Update" : "Add band"  %>">
+
+ 
+</form>
