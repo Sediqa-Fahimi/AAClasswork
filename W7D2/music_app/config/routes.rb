@@ -6,9 +6,12 @@ Rails.application.routes.draw do
 
   
   #users & sessions
-  resources :users, only: [:new, :create, :show]
-  resource :sessions, only: [:new, :create, :destroy]
+  resources :users,    only:   [ :new, :create, :show]
+  resource :sessions,  only:   [ :new, :create, :destroy]
 
-  #bands
-  resources :bands
+  #bands & albums
+  resources :bands do
+    resources :albums, only:   [ :new ]
+  end
+  resources :albums,   except: [ :new ]  
 end
