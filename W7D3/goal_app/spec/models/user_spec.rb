@@ -9,6 +9,7 @@ RSpec.describe User, type: :model do
   subject(:a_person) {FactoryBot.create(:user)}
 
   it {should validate_uniqueness_of(:username)}
+  it {should validate_uniqueness_of(:session_token)}
 
   describe '#ensure_session_token' do 
     it 'assigns a session token if none is given' do
