@@ -19,18 +19,20 @@ button {
 	font-weight: normal;
 	padding: 4pt;
 	border-radius: 7px;
-	transition: width 2s, height 2s;
+	transition: width 2s;
 	font-family: serif;
-	font-size: 10pt;
-	text-align: justify;
+	font-size: 12pt;
+	text-align: center;
 	text-transform: lowercase;
+	transition-duration: 2000ms;
+	-webkit-transition-duration: 2000ms;
 }
 
 button:hover {
-	width: 30%;
-	height: 20px;
+	width: 100%;
 	background-color: $blue;
 	border-color: red;
+	
 }
 
 /*
