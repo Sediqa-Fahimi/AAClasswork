@@ -58,7 +58,7 @@ RSpec.describe User, type: :model do
 
   describe "User::find_by_credentials" do
     it 'should return the user object if found' do
-      test = User.find_by_credentials('Joe', '123456')
+      test = User.find_by_credentials(subject.username, '123456')
       expect(subject.password_digest).to eq(test.password_digest)
     end
 
@@ -68,9 +68,5 @@ RSpec.describe User, type: :model do
     end
   end
 
-  #implement later
-  # describe 'associations' do
-  #   it {should have_many(:)}
-  # end
 
 end
