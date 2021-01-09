@@ -31,16 +31,17 @@
   > ul {
 
     > li {
-      margin: 10px;
+      margin: 5px;
     }
 
     > li:last-of-type {
-      margin-right: 12px;
+      margin-right: 10px;
+      position: relative;
     }
   }
   
   i {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 
@@ -48,3 +49,6 @@
 .right-nav > ul > li:last-of-type:hover {
   color: $gray;
 }
+
+
+
