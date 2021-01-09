@@ -1,0 +1,20 @@
+.section-nav {
+
+  display: flex;
+  justify-content: space-around;
+  padding: 5px;
+  font-family: $sans-serif;
+
+    li:hover {
+      background-color: $light-gray;
+      text-decoration: underline;
+
+    }
+  
+    
+}
+section{
+
+  border-bottom: 1px solid $light-gray;
+
+}
