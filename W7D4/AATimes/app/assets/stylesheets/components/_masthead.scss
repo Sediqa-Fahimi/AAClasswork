@@ -15,7 +15,7 @@
 	border-bottom: none;
 	border-top-left-radius: 3px;
 	border-top-right-radius: 3px;
-
+	
 	a {
 		margin: 0 5px;
 		text-transform: uppercase;
@@ -26,6 +26,9 @@
 
 	ul {
 		display: flex;
+	}
+	a:hover {
+		text-decoration: underline;
 	}
 }
 
@@ -42,8 +45,12 @@
 	margin-bottom: 10px;
 
 	li {
-		margin-left: 10px;
+		margin-left: 20px;
 		border-right: 1px solid $light-gray;
+		
+	}
+	li:nth-child(n+4):nth-child(-n+5):hover {
+		color: gray;
 	}
 
 	button {
@@ -62,6 +69,7 @@
 	button, 
 	time {
 		margin-right: 10px;
+		
 	}
 
 	i {
@@ -70,5 +78,9 @@
 
 	strong {
 		color: green;
+	}
+
+	a:hover {
+		text-decoration: underline;
 	}
 }
