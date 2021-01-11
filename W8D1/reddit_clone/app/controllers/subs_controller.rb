@@ -8,7 +8,6 @@ class SubsController < ApplicationController
 
     def create
         @sub = Sub.new(sub_params)
-        # debugger
         @sub.moderator_id = current_user.id
         if @sub.save
             redirect_to sub_url(@sub)
