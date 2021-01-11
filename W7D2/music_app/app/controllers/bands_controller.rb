@@ -1,4 +1,5 @@
 class BandsController < ApplicationController
+  
   def index
     @bands = Band.all
     render :index
@@ -9,7 +10,7 @@ class BandsController < ApplicationController
     if @band.save
       redirect_to band_url(@band)
     else
-      flash.now[:errors] = ["Invalid band name 😭"]
+      flash.now[:errors] = @band.errors.full_messages
       render :new
     end
   end
@@ -34,7 +35,7 @@ class BandsController < ApplicationController
     if @band.update(name: params[:band][:name])
       redirect_to band_url(@band)
     else
-      flash.now[:errors] = ["name can't be blank"] # @band.errors.full_messages}"]
+      flash.now[:errors] = @band.errors.full_messages
       render :edit
     end
   end

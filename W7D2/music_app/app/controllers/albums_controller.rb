@@ -1,22 +1,18 @@
 class AlbumsController < ApplicationController
-  def index
-    @albums = Album.all
-    render    :index
+
+   def new
+    @album = Album.new
+    render :new
   end
 
   def create
-    @album = Album.new(name: params[:band][:name])
+    @album = Album.new(album_params)
     if @album.save
-      redirect_to band_url(@album)
+      redirect_to album_url(@album)
     else
-      flash.now[:errors] = ["Invalid album name 😭"]
+      flash.now[:errors] = @album.errors.full_messages
       render :new
     end
-  end
-
-  def new
-    @album = Album.new
-    render :new
   end
 
   def show
@@ -31,10 +27,11 @@ class AlbumsController < ApplicationController
 
   def update
     @album = Album.find_by(id: params[:id])
-    if @album.update(name: params[:band][:name])
-      redirect_to band_url(@album)
+
+    if @album.update(album_params)
+      redirect_to album_url(@album)
     else
-      flash.now[:errors] = ["album name can't be blank"]
+      flash.now[:errors] = @album.errors.full_messages
       render :edit
     end
   end
@@ -42,12 +39,12 @@ class AlbumsController < ApplicationController
   def destroy
     @album = Album.find_by(id: params[:id])
     @album.destroy
-    redirect_to bands_url
+    redirect_to band_url(@album.band_id)
   end
 
   private
 
   def album_params
-    params.require(:album).permit(:title,:year,:live)
+    params.require(:album).permit(:title,:year,:live,:band_id)
   end
 end

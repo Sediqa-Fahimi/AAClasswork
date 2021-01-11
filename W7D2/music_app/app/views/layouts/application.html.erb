@@ -18,23 +18,22 @@
         <% if logged_in? %>
           <h3>Welcome <%= current_user.email %></h3>
         </div>
-        <form action=<%= sessions_url %> method="POST">
+        <form action=<%= session_url %> method="POST">
           <input type="hidden" name="_method" value="DELETE">
           <input type="hidden"
                  name="authenticity_token"
-                 value=<%= form_authenticity_token %>>
-          <input type="submit" value="logout">
+                 value="<%= form_authenticity_token %>">
+          <input type="submit" value="Log Out">
         </form>
       <% else %>
         </div>      
         <div class="session-links">
-          <a href=<%=new_user_url%>>    (☞ﾟヮﾟ)☞ Sign up ☜(ﾟヮﾟ☜)</a>
-          <a href=<%=new_sessions_url%>>(☞ﾟヮﾟ)☞ Sign in ☜(ﾟヮﾟ☜)</a>
+          <a href=<%=new_user_url%>>Sign Up</a>
+          <a href=<%=new_session_url%>>Sign In</a>
         </div>
       <% end %>
     </header>
     <%= yield %>
-
     <%= flash[:errors] %>
   </body>
 </html>

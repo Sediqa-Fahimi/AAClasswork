@@ -1,0 +1,15 @@
+<%= @album.title %>
+<%= @album.year %>
+<%= @album.live ? "Live" : "Studio" %>
+
+<a href="<%= band_url(@album.band_id) %>"><%= @album.band.name %></a>
+
+<a href="<%= edit_album_url(@album) %>">Edit</a>
+
+<form action="<%= album_url(@album) %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+    <input type="submit" value="Delete Album">
+</form>
+

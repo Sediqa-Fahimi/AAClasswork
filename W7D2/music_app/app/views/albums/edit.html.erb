@@ -1,0 +1,19 @@
+<form action="<%= album_url(@album) %>" method="POST">
+  <input type="hidden" name="_method" value="PATCH">
+  <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %>>
+  <input type="hidden" name="album[band_id]" value="<%= @album.band_id %>">
+
+  <label>Title:
+    <input type="text" name="album[title]" value="<%= @album.title %>">
+  </label>
+  <label>Year:
+    <input type="text" name="album[year]" value="<%= @album.year %>">
+  </label>
+  <label>Kind:
+   <input type="radio" name="album[live]" value="true" <%= @album.live ? "checked" : "" %>>Live
+   <input type="radio" name="album[live]" value="false" <%= @album.live ? "" : "checked" %>>Studio
+  </label>
+  
+  <input type="submit" value="Update Album">
+
+</form>

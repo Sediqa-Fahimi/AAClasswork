@@ -1,9 +1,10 @@
+
 <div class="edit-container">
     <%= render 'form', band: @band, action: :edit %>
 
     <form action="<%= band_url(@band) %>" method="POST">
         <input type="hidden" name="_method" value="DELETE">
-        <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %>>
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
         <input type="submit" value="Delete Band">
     </form>
 </div>

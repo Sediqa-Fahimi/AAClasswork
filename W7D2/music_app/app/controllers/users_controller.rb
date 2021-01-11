@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :require_login, only: [:show]
+  
   def new
     @user = User.new
     render :new
@@ -10,12 +12,12 @@ class UsersController < ApplicationController
       login(@user)
       redirect_to user_url(@user)
     else
-      flash.now[:errors] = ["Invalid input, try again ( ´･･)ﾉ(._.`)"]
+      flash.now[:errors] = @user.errors.full_messages
       render :new
     end
   end
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by(id: params[:id])
     render :show
   end
 

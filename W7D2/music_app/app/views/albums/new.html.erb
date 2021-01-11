@@ -2,20 +2,19 @@
 <form action="<%= albums_url %>" method="POST">
     
   <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %>>
+  <input type="hidden" name="album[band_id]" value="<%= params[:band_id] %>">
 
   <label>Title:
-    <input type="text" name="album[title]" >
+    <input type="text" name="album[title]" value="<%= @album.title %>">
   </label>
   <label>Year:
-    <input type="text" name="album[year]" >
+    <input type="text" name="album[year]" value="<%= @album.year %>">
   </label>
-  <label > Band:
-    <select name="" >
-        <option value=""></option>
-        
-    </select>
-    </label>
-  <input type="submit" value="<%= action == :edit ? "Update" : "Add band"  %>">
+  <label>Kind:
+   <input type="radio" name="album[live]" value="true" <%= @album.live ? "checked" : "" %> >Live
+   <input type="radio" name="album[live]" value="false" <%= @album.live ? "" : "checked" %> >Studio
+  </label>
+  
+  <input type="submit" value="Add Album">
 
- 
 </form>

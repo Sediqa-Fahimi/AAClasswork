@@ -1,6 +1,9 @@
-<ul>
-   <li><%= @band.name %></li>
-   <li><%= @band.created_at %></li>
-   <li><%= @band.updated_at %></li>
 
+<h1><%= @band.name %></h1>
+<ul>
+   <% @band.albums.each do |album|%>
+      <li><a href="<%= album_url(album) %>"><%= album.title %></a></li>
+   <% end%>
 </ul>
+
+<a href="<%= new_band_album_url(@band) %>">Create New Album</a>
