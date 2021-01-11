@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-
+    before_action :require_login!, only: [:destroy]
     def new
         render :new
     end 
@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
             params[:user][:password])
         if @user 
             login!(@user)
+            redirect_to user_url(@user)
         else 
             flash.now[:errors] = ["Invalid username or password"]
             render :new
