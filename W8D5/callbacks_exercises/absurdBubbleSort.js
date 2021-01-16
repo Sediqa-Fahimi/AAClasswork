@@ -18,22 +18,20 @@ function askIfGreaterThan(el1, el2, callback) {
     });
   }
   
-//   askIfGreaterThan(5,4, (bool) => {console.log(`${bool}`)})
+
   // Once you're done testing askIfGreaterThan with dummy arguments, write this.
   function innerBubbleSortLoop(arr, i, madeAnySwaps, outerBubbleSortLoop) {
     // Do an "async loop":
     // 1. If (i == arr.length - 1), call outerBubbleSortLoop, letting it
     //    know whether any swap was made.
     if (i === arr.length - 1) {
-        outerBubbleSortLoop(madeAnySwaps, arr)
+        outerBubbleSortLoop(madeAnySwaps)
     } else {
     // 2. Else, use `askIfGreaterThan` to compare `arr[i]` and `arr[i +
     //    1]`. Swap if necessary. Call `innerBubbleSortLoop` again to
     //    continue the inner loop. You'll want to increment i for the
     //    next call, and possibly switch madeAnySwaps if you did swap.
         askIfGreaterThan(arr[i], arr[i + 1], function (isGreaterThan) {
-            console.log(isGreaterThan);
-            console.log(madeAnySwaps);
             if (isGreaterThan) {
                 [arr[i+1], arr[i]] = [arr[i], arr[i+1]];
                 madeAnySwaps = true;
@@ -42,20 +40,25 @@ function askIfGreaterThan(el1, el2, callback) {
         })
     }
   }
-  innerBubbleSortLoop([3,1,2,4,2,6], 0, false, (bool, arr) => console.log(`${bool}, ${arr}`))
+
   // Once you're done testing innerBubbleSortLoop, write outerBubbleSortLoop.
   // Once you're done testing outerBubbleSortLoop, write absurdBubbleSort.
   
   function absurdBubbleSort(arr, sortCompletionCallback) {
     function outerBubbleSortLoop(madeAnySwaps) {
+      if (madeAnySwaps){
+        innerBubbleSortLoop(arr,0,false,outerBubbleSortLoop);
+      } else{
+        sortCompletionCallback(arr);
+      }
       // Begin an inner loop if you made any swaps. Otherwise, call
       // `sortCompletionCallback`.
     }
-  
     // Kick the first outer loop off, starting `madeAnySwaps` as true.
+    outerBubbleSortLoop(true);
   }
   
-  absurdBubbleSort([3, 2, 1], function(arr) {
+  absurdBubbleSort([3, 2, 1, 5, 4, 10], function(arr) {
     console.log("Sorted array: " + JSON.stringify(arr));
     reader.close();
   });
