@@ -6301,3 +6301,466 @@ Processing by AlbumsController#create as HTML
 Completed 200 OK in 35ms (Views: 28.8ms | ActiveRecord: 0.4ms)
 
 
+Started GET "/bands" for ::1 at 2021-01-10 22:47:07 -0800
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/sediqa/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.8ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:2
+  Rendered bands/index.html.erb within layouts/application (16.1ms)
+Completed 200 OK in 201ms (Views: 183.0ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/bands/new" for ::1 at 2021-01-10 22:47:21 -0800
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/_form.html.erb (2.0ms)
+  Rendered bands/new.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 31ms (Views: 30.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/bands" for ::1 at 2021-01-10 22:47:53 -0800
+Processing by BandsController#create as HTML
+  Parameters: {"authenticity_token"=>"x/l62K2PRe2KjKODllg71R23FhzmHgh8w19yQfVpKszM+Gl45Lrp2WNCtvsu+GRKg9pH4ClgESNU31eEVvCfVg==", "band"=>{"name"=>"Band 26"}}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bands_controller.rb:10
+  [1m[36mBand Create (1.2ms)[0m  [1m[32mINSERT INTO "bands" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Band 26"], ["created_at", "2021-01-11 06:47:53.631766"], ["updated_at", "2021-01-11 06:47:53.631766"]]
+  ↳ app/controllers/bands_controller.rb:10
+  [1m[35m (4.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/bands_controller.rb:10
+Redirected to http://localhost:3000/bands/5
+Completed 302 Found in 12ms (ActiveRecord: 6.1ms)
+
+
+Started GET "/bands/5" for ::1 at 2021-01-10 22:47:53 -0800
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:24
+  Rendering bands/show.html.erb within layouts/application
+  [1m[36mAlbum Load (0.6ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."band_id" = $1[0m  [["band_id", 5]]
+  ↳ app/views/bands/show.html.erb:4
+  Rendered bands/show.html.erb within layouts/application (24.8ms)
+Completed 200 OK in 102ms (Views: 91.9ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/bands/new" for ::1 at 2021-01-10 22:48:04 -0800
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/_form.html.erb (0.7ms)
+  Rendered bands/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 48ms (Views: 47.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/bands" for ::1 at 2021-01-10 22:48:06 -0800
+Processing by BandsController#create as HTML
+  Parameters: {"authenticity_token"=>"dGN5LsL85vu5WOvPllplzcS5ZdsXfIXwpf+Oj4ljIWB/YmqOi8lKz1CW/rcu+jpSWtQ0J9gCnK8yf6tKKvqU+g==", "band"=>{"name"=>""}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bands_controller.rb:10
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/bands_controller.rb:10
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/_form.html.erb (0.9ms)
+  Rendered bands/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 52ms (Views: 47.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/bands" for ::1 at 2021-01-10 22:48:24 -0800
+Processing by BandsController#create as HTML
+  Parameters: {"authenticity_token"=>"SpnSY/ADVuABT/eQT7JmLuHGtdZ8ckjtLeqUYIksGfxBmMHDuTb61OiB4uj3Ejmxf6vkKrMMUbK6arGlKrWsZg==", "band"=>{"name"=>"Band 26"}}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bands_controller.rb:10
+  [1m[36mBand Create (0.5ms)[0m  [1m[32mINSERT INTO "bands" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Band 26"], ["created_at", "2021-01-11 06:48:24.805238"], ["updated_at", "2021-01-11 06:48:24.805238"]]
+  ↳ app/controllers/bands_controller.rb:10
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/bands_controller.rb:10
+Redirected to http://localhost:3000/bands/6
+Completed 302 Found in 11ms (ActiveRecord: 6.8ms)
+
+
+Started GET "/bands/6" for ::1 at 2021-01-10 22:48:24 -0800
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mBand Load (2.0ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:24
+  Rendering bands/show.html.erb within layouts/application
+  [1m[36mAlbum Load (0.4ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."band_id" = $1[0m  [["band_id", 6]]
+  ↳ app/views/bands/show.html.erb:4
+  Rendered bands/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 73ms (Views: 66.0ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/bands" for ::1 at 2021-01-10 22:48:30 -0800
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.3ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:2
+  Rendered bands/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 62ms (Views: 61.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/bands/6" for ::1 at 2021-01-10 22:48:31 -0800
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mBand Load (0.3ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:24
+  Rendering bands/show.html.erb within layouts/application
+  [1m[36mAlbum Load (0.5ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."band_id" = $1[0m  [["band_id", 6]]
+  ↳ app/views/bands/show.html.erb:4
+  Rendered bands/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 54ms (Views: 52.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/bands/1/edit" for ::1 at 2021-01-10 22:49:02 -0800
+Processing by BandsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:29
+  Rendering bands/edit.html.erb within layouts/application
+  Rendered bands/_form.html.erb (25.3ms)
+  Rendered bands/edit.html.erb within layouts/application (32.3ms)
+Completed 500 Internal Server Error in 54ms (ActiveRecord: 0.5ms)
+
+
+
+ActionController::UrlGenerationError - No route matches {:action=>"show", :controller=>"bands", :id=>nil}, missing required keys: [:id]:
+  app/views/bands/_form.html.erb:2:in `_app_views_bands__form_html_erb___274134003561630783_70196857095800'
+  app/views/bands/edit.html.erb:3:in `_app_views_bands_edit_html_erb___2397777139326758474_70196935689980'
+  app/controllers/bands_controller.rb:30:in `edit'
+
+Started POST "/__better_errors/46ccc62b23b2b0e1/variables" for ::1 at 2021-01-10 22:49:02 -0800
+Started GET "/bands" for ::1 at 2021-01-10 22:49:42 -0800
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:2
+  Rendered bands/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 51ms (Views: 50.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/bands/6" for ::1 at 2021-01-10 22:49:46 -0800
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:24
+  Rendering bands/show.html.erb within layouts/application
+  [1m[36mAlbum Load (0.4ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."band_id" = $1[0m  [["band_id", 6]]
+  ↳ app/views/bands/show.html.erb:4
+  Rendered bands/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 32ms (Views: 28.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/bands/6/edit" for ::1 at 2021-01-10 22:49:55 -0800
+Processing by BandsController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:29
+  Rendering bands/edit.html.erb within layouts/application
+  Rendered bands/_form.html.erb (0.8ms)
+  Rendered bands/edit.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 41ms (Views: 39.8ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/bands/6" for ::1 at 2021-01-10 22:49:58 -0800
+Processing by BandsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"y+w1dGHBeWqwwB+L682Me12Fe3eJocWNB5zUcb8iUCHA7SbUKPTVXlkOCvNTbdPkw+gqi0bf3NKQHPG0HLvluw==", "id"=>"6"}
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:44
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bands_controller.rb:45
+  [1m[36mBand Destroy (0.7ms)[0m  [1m[31mDELETE FROM "bands" WHERE "bands"."id" = $1[0m  [["id", 6]]
+  ↳ app/controllers/bands_controller.rb:45
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/bands_controller.rb:45
+Redirected to http://localhost:3000/bands
+Completed 302 Found in 8ms (ActiveRecord: 3.6ms)
+
+
+Started GET "/bands" for ::1 at 2021-01-10 22:49:58 -0800
+Processing by BandsController#index as HTML
+  Rendering bands/index.html.erb within layouts/application
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT "bands".* FROM "bands"[0m
+  ↳ app/views/bands/index.html.erb:2
+  Rendered bands/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 33ms (Views: 32.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/bands/5" for ::1 at 2021-01-10 22:50:01 -0800
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBand Load (0.2ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:24
+  Rendering bands/show.html.erb within layouts/application
+  [1m[36mAlbum Load (0.4ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."band_id" = $1[0m  [["band_id", 5]]
+  ↳ app/views/bands/show.html.erb:4
+  Rendered bands/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 51ms (Views: 49.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/bands/5/edit" for ::1 at 2021-01-10 22:50:06 -0800
+Processing by BandsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBand Load (0.3ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:29
+  Rendering bands/edit.html.erb within layouts/application
+  Rendered bands/_form.html.erb (0.8ms)
+  Rendered bands/edit.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 50ms (Views: 48.0ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/bands/5" for ::1 at 2021-01-10 22:50:12 -0800
+Processing by BandsController#update as HTML
+  Parameters: {"authenticity_token"=>"WUI34V7MVKtaMzKf7mPElkm3f21jVBfih2cQJjT9w8RSQyRBF/n4n7P9J+dWw5sJ19oukawqDr0Q5zXjl2R2Xg==", "band"=>{"name"=>""}, "id"=>"5"}
+  [1m[36mBand Load (0.2ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:34
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bands_controller.rb:35
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/bands_controller.rb:35
+  Rendering bands/edit.html.erb within layouts/application
+  Rendered bands/_form.html.erb (0.7ms)
+  Rendered bands/edit.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 37ms (Views: 33.6ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/bands/5" for ::1 at 2021-01-10 22:50:18 -0800
+Processing by BandsController#update as HTML
+  Parameters: {"authenticity_token"=>"xot6vlGej5MY3reeRDRvEBQ2wQE24CvxaHvaOHOaGGfNimkeGKsjp/EQoub8lDCPiluQ/fmeMq7/+//90AOt/Q==", "band"=>{"name"=>"Band 26"}, "id"=>"5"}
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:34
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bands_controller.rb:35
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/bands_controller.rb:35
+Redirected to http://localhost:3000/bands/5
+Completed 302 Found in 5ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/bands/5" for ::1 at 2021-01-10 22:50:18 -0800
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBand Load (0.2ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:24
+  Rendering bands/show.html.erb within layouts/application
+  [1m[36mAlbum Load (1.0ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."band_id" = $1[0m  [["band_id", 5]]
+  ↳ app/views/bands/show.html.erb:4
+  Rendered bands/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 35ms (Views: 32.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/bands/5/albums/new" for ::1 at 2021-01-10 22:50:20 -0800
+Processing by AlbumsController#new as HTML
+  Parameters: {"band_id"=>"5"}
+  Rendering albums/new.html.erb within layouts/application
+  Rendered albums/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 43ms (Views: 33.8ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/albums" for ::1 at 2021-01-10 22:51:14 -0800
+Processing by AlbumsController#create as HTML
+  Parameters: {"authenticity_token"=>"Qw65/XoUtmAMVCuVfkLYxuxkn7NLWz5PLq7Cpo10OURID6pdMyEaVOWaPu3G4odZcgnOT4QlJxC5LudjLu2M3g==", "album"=>{"band_id"=>"5", "title"=>"test", "year"=>"", "live"=>"true"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/albums_controller.rb:10
+  [1m[36mBand Load (0.2ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:10
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/albums_controller.rb:10
+  Rendering albums/new.html.erb within layouts/application
+  Rendered albums/new.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 50ms (Views: 32.1ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/albums" for ::1 at 2021-01-10 22:51:37 -0800
+Processing by AlbumsController#create as HTML
+  Parameters: {"authenticity_token"=>"BMn24P7upgI2nIkJaJRL9kKJL4Q+Ppei7zVOfkIQhEgPyOVAt9sKNt9SnHHQNBRp3OR+ePFAjv14tWu74Ykx0g==", "album"=>{"band_id"=>"", "title"=>"test", "year"=>"1990", "live"=>"true"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/albums_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/albums_controller.rb:10
+  Rendering albums/new.html.erb within layouts/application
+  Rendered albums/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 42ms (Views: 38.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/albums" for ::1 at 2021-01-10 22:53:11 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/albums"):
+  
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/albums" for ::1 at 2021-01-10 22:53:19 -0800
+Processing by AlbumsController#create as HTML
+  Parameters: {"authenticity_token"=>"gjZn/zCVw2KLjffIpRecNM69t3zv72I2ea69mj/x4P+JN3RfeaBvVmJD4rAdt8OrUNDmgCCRe2nuLphfnGhVZQ==", "album"=>{"band_id"=>"5", "title"=>"test", "year"=>"1990", "live"=>"true"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/albums_controller.rb:10
+  [1m[36mBand Load (0.3ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:10
+  [1m[36mAlbum Create (0.5ms)[0m  [1m[32mINSERT INTO "albums" ("title", "year", "band_id", "created_at", "updated_at", "live") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "test"], ["year", 1990], ["band_id", 5], ["created_at", "2021-01-11 06:53:19.745100"], ["updated_at", "2021-01-11 06:53:19.745100"], ["live", true]]
+  ↳ app/controllers/albums_controller.rb:10
+  [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/albums_controller.rb:10
+Redirected to http://localhost:3000/albums/10
+Completed 302 Found in 12ms (ActiveRecord: 6.6ms)
+
+
+Started GET "/albums/10" for ::1 at 2021-01-10 22:53:19 -0800
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mAlbum Load (0.9ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:19
+  Rendering albums/show.html.erb within layouts/application
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/albums/show.html.erb:5
+  Rendered albums/show.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 46ms (Views: 40.8ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/albums/10/edit" for ::1 at 2021-01-10 22:53:25 -0800
+Processing by AlbumsController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mAlbum Load (0.7ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:24
+  Rendering albums/edit.html.erb within layouts/application
+  Rendered albums/edit.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 39ms (Views: 36.5ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/albums/10" for ::1 at 2021-01-10 22:53:43 -0800
+Processing by AlbumsController#update as HTML
+  Parameters: {"authenticity_token"=>"gmd9VJtdkhscCu/KsvbSsRgEQIkq5N/dEmL7MGicf0+JZm700mg+L/XE+rIKVo0uhmkRdeWaxoKF4t71ywXK1Q==", "album"=>{"band_id"=>"5", "title"=>"test234", "year"=>"", "live"=>"true"}, "id"=>"10"}
+  [1m[36mAlbum Load (0.6ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:29
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/albums_controller.rb:31
+  [1m[36mBand Load (0.2ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:31
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/albums_controller.rb:31
+  Rendering albums/edit.html.erb within layouts/application
+  Rendered albums/edit.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 45ms (Views: 37.3ms | ActiveRecord: 1.4ms)
+
+
+Started PATCH "/albums/10" for ::1 at 2021-01-10 22:53:45 -0800
+Processing by AlbumsController#update as HTML
+  Parameters: {"authenticity_token"=>"9Rzyrabx8kRanyv0t0JslSFBFIl8cVUrLlB1i7q6ITj+HeEN78RecLNRPowP4jMKvyxFdbMPTHS50FBOGSOUog==", "album"=>{"band_id"=>"5", "title"=>"test234", "year"=>"", "live"=>"true"}, "id"=>"10"}
+  [1m[36mAlbum Load (0.4ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:29
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/albums_controller.rb:31
+  [1m[36mBand Load (0.1ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:31
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/albums_controller.rb:31
+  Rendering albums/edit.html.erb within layouts/application
+  Rendered albums/edit.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 39ms (Views: 33.7ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/albums/10" for ::1 at 2021-01-10 22:53:46 -0800
+Processing by AlbumsController#update as HTML
+  Parameters: {"authenticity_token"=>"R2lEG2H8NUg1e8e+yFE52PHJmV1NnL8WnghrfAYo4rRMaFe7KMmZfNy10sZw8WZHb6TIoYLipkkJiE65pbFXLg==", "album"=>{"band_id"=>"5", "title"=>"test234", "year"=>"", "live"=>"true"}, "id"=>"10"}
+  [1m[36mAlbum Load (0.5ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:29
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/albums_controller.rb:31
+  [1m[36mBand Load (0.3ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:31
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/albums_controller.rb:31
+  Rendering albums/edit.html.erb within layouts/application
+  Rendered albums/edit.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 46ms (Views: 36.0ms | ActiveRecord: 1.4ms)
+
+
+Started PATCH "/albums/10" for ::1 at 2021-01-10 22:53:46 -0800
+Processing by AlbumsController#update as HTML
+  Parameters: {"authenticity_token"=>"oMw2rAwEOa8Kugo0DMEpxua+T0BcwHM2eUIm0IBjGH2rzSUMRTGVm+N0H0y0YXZZeNMevJO+amnuwgMVI/qt5w==", "album"=>{"band_id"=>"5", "title"=>"test234", "year"=>"", "live"=>"true"}, "id"=>"10"}
+  [1m[36mAlbum Load (0.4ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:29
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/albums_controller.rb:31
+  [1m[36mBand Load (0.2ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:31
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/albums_controller.rb:31
+  Rendering albums/edit.html.erb within layouts/application
+  Rendered albums/edit.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 47ms (Views: 41.1ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/albums/10" for ::1 at 2021-01-10 22:53:50 -0800
+Processing by AlbumsController#update as HTML
+  Parameters: {"authenticity_token"=>"8jmU7M+/NmwzEZT7pwL6rAlJlY+3TgjfgzSUuV0doCv5OIdMhoqaWNrfgYMfoqUzlyTEc3gwEYAUtLF8/oQVsQ==", "album"=>{"band_id"=>"5", "title"=>"test234", "year"=>"1990", "live"=>"true"}, "id"=>"10"}
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:29
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/albums_controller.rb:31
+  [1m[36mBand Load (0.1ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:31
+  [1m[36mAlbum Update (0.4ms)[0m  [1m[33mUPDATE "albums" SET "title" = $1, "updated_at" = $2 WHERE "albums"."id" = $3[0m  [["title", "test234"], ["updated_at", "2021-01-11 06:53:50.819524"], ["id", 10]]
+  ↳ app/controllers/albums_controller.rb:31
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/albums_controller.rb:31
+Redirected to http://localhost:3000/albums/10
+Completed 302 Found in 11ms (ActiveRecord: 7.1ms)
+
+
+Started GET "/albums/10" for ::1 at 2021-01-10 22:53:50 -0800
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:19
+  Rendering albums/show.html.erb within layouts/application
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/albums/show.html.erb:5
+  Rendered albums/show.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 48ms (Views: 46.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/bands/5" for ::1 at 2021-01-10 22:54:02 -0800
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBand Load (0.2ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:24
+  Rendering bands/show.html.erb within layouts/application
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."band_id" = $1[0m  [["band_id", 5]]
+  ↳ app/views/bands/show.html.erb:4
+  Rendered bands/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 43ms (Views: 41.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/bands/5/albums/new" for ::1 at 2021-01-10 22:54:03 -0800
+Processing by AlbumsController#new as HTML
+  Parameters: {"band_id"=>"5"}
+  Rendering albums/new.html.erb within layouts/application
+  Rendered albums/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 30ms (Views: 29.1ms | ActiveRecord: 0.0ms)
+
+
