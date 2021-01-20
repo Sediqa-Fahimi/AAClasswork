@@ -3,6 +3,7 @@ const Game = require("./../tic_tac_toe_node_solution/game");
 
   $(() => {
     const game = new Game();
-    const view = new View();
+    const $container = $('figure.ttt');
+    new View(game, $container);
     
   });

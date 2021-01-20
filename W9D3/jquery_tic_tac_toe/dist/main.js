@@ -15,7 +15,7 @@
   \*************************/
 /***/ ((module) => {
 
-eval("class View {\n  constructor(game, $el) {}\n\n  bindEvents() {}\n\n  makeMove($square) {}\n\n  setupBoard() {}\n}\n\nmodule.exports = View;\n\n\n//# sourceURL=webpack:///./src/ttt-view.js?");
+eval("class View {\n  constructor(game, $el) {\n    this.setupBoard()\n\n  }\n\n  bindEvents() {}\n\n  makeMove($square) {}\n\n  setupBoard() {\n    const $ul = $(\"<ul class='grid'></ul>\");\n    $('.ttt').append($ul);\n    const $li = $(\"<li></li>\");\n    $('.grid').append($li); \n    const $li2 = $(\"<li></li>\");\n    $('.grid').append($li2);\n    const $li3 = $(\"<li></li>\");\n    $('.grid').append($li3);\n    const $li4 = $(\"<li></li>\");\n    $('.grid').append($li4);\n    const $li5 = $(\"<li></li>\");\n    $('.grid').append($li5);\n    const $li6 = $(\"<li></li>\");\n    $('.grid').append($li6);\n    const $li7 = $(\"<li></li>\");\n    $('.grid').append($li7);\n    const $li8 = $(\"<li></li>\");\n    $('.grid').append($li8);\n    const $li9 = $(\"<li></li>\");\n    $('.grid').append($li9);\n    \n\n  }\n}\n\nmodule.exports = View;\n\n\n//# sourceURL=webpack:///./src/ttt-view.js?");
 
 /***/ }),
 
@@ -79,7 +79,7 @@ eval("\nconst MoveError = function (msg) { this.msg = msg; };\n\n// MoveError re
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-eval("const View = __webpack_require__(/*! ./ttt-view */ \"./src/ttt-view.js\"); \nconst Game = __webpack_require__(/*! ./../tic_tac_toe_node_solution/game */ \"./tic_tac_toe_node_solution/game.js\");\n\n  $(() => {\n    const game = new Game();\n    const view = new View();\n    \n  });\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("const View = __webpack_require__(/*! ./ttt-view */ \"./src/ttt-view.js\"); \nconst Game = __webpack_require__(/*! ./../tic_tac_toe_node_solution/game */ \"./tic_tac_toe_node_solution/game.js\");\n\n  $(() => {\n    const game = new Game();\n    const $container = $('figure.ttt');\n    new View(game, $container);\n    \n  });\n\n\n//# sourceURL=webpack:///./src/index.js?");
 })();
 
 /******/ })()
