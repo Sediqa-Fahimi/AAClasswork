@@ -1,4 +1,15 @@
-.grid {
+ul {
     display: flex;
-    width: 
+    width: 300px;
+    flex-wrap: wrap;
+    list-style: none;
+}
+li {
+    width: 98px;
+    height: 98px;
+    border: 1px solid pink;
+    background-color: lightgray;
+}
+li:hover{
+    background-color:lightblue;
 }
