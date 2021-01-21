@@ -1,4 +1,5 @@
 const Game = require("../tic_tac_toe_node_solution/game");
+const moveError = require("./../tic_tac_toe_node_solution/moveError");
 
 class View {
   constructor(game, $el) {
@@ -9,9 +10,13 @@ class View {
   }
 
   bindEvents() {
-    
     $('li').on('click', (e) => {
-      this.makeMove($(e.target));    
+      let pos = $(e.target).data('pos');
+      if (!this.game.board.isEmptyPos(pos)) {
+        alert("Already taken!");
+      } else {
+        this.makeMove($(e.target));
+      }
     })
   }
 
@@ -19,6 +24,16 @@ class View {
     let pos = $square.data('pos');
     this.game.playMove(pos);
     $square.text(this.game.currentPlayer);
+    $square.addClass('played');
+    if(this.game.isOver()){
+      this.endGame();
+    }
+  }
+  endGame(){
+    const $p = $("<p class='win'></p>");
+    $('.grid').append($p);
+    $p.text(`Congratulations Player ${this.game.currentPlayer} you won!`);
+    
   }
 
   setupBoard() {

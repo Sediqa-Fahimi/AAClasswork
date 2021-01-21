@@ -13,3 +13,10 @@ li {
 li:hover{
     background-color:lightblue;
 }
+.played{
+    background-color: lightgreen;
+    color: red;
+    font-size: 30px;
+    text-align: center;
+    line-height: 98px;
+}
