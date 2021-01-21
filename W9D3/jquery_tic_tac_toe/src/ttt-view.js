@@ -24,6 +24,7 @@ class View {
     let pos = $square.data('pos');
     this.game.playMove(pos);
     $square.text(this.game.currentPlayer);
+    if ($square.() === 'x')
     $square.addClass('played');
     if(this.game.isOver()){
       this.endGame();
@@ -33,6 +34,8 @@ class View {
     const $p = $("<p class='win'></p>");
     $('.grid').append($p);
     $p.text(`Congratulations Player ${this.game.currentPlayer} you won!`);
+    $('li').off('mouseenter mouseleave');
+    $('li').off('click');
     
   }
 
@@ -67,6 +70,12 @@ class View {
     $li7.data('pos', [2, 0]);
     $li8.data('pos', [2, 1]);
     $li9.data('pos', [2, 2]);
+
+    $('li').hover(function () {
+      $(this).css('background-color', 'lightblue');
+    }, function() {
+      $(this).css('background-color', 'lightgray');
+    });
     
 
   }
