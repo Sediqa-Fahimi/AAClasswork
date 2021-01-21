@@ -24,7 +24,6 @@ class View {
     let pos = $square.data('pos');
     this.game.playMove(pos);
     $square.text(this.game.currentPlayer);
-    if ($square.() === 'x')
     $square.addClass('played');
     if(this.game.isOver()){
       this.endGame();
