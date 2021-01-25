@@ -15,7 +15,7 @@
   \************************************/
 /***/ ((module) => {
 
-eval("class DOMNodeCollection {\n\n    constructor(array) {\n        this.array = array;\n    }\n\n    html(str) {\n\n        if (!str) {\n            // getter\n            return this.array[0].innerHTML;\n        } else {\n            // setter\n            this.array.forEach(ele => {\n                ele.innerHTML = str;\n            })\n        }\n    }\n\n    empty() {\n        this.array.forEach(ele => {\n            ele.innerHTML = \"\";\n        })\n    }\n\n    append(arg) {\n        this.array.forEach((ele, idx) => {\n            ele.innerHTML += arg[idx].outerHTML;\n        });\n    };\n\n\n\n}\n\nmodule.exports = DOMNodeCollection;\n\n//# sourceURL=webpack:///./src/dom_node_collection.js?");
+eval("class DOMNodeCollection {\n\n    constructor(array) {\n        this.array = array;\n    }\n\n    html(str) {\n\n        if (!str) {\n            // getter\n            return this.array[0].innerHTML;\n        } else {\n            // setter\n            this.array.forEach(ele => {\n                ele.innerHTML = str;\n            })\n        }\n    }\n\n    empty() {\n        this.array.forEach(ele => {\n            ele.innerHTML = \"\";\n        })\n    }\n\n    append(arg) {\n        this.array.forEach((el1) => {\n            arg.array.forEach(el2=>{\n                el1.insertAdjacentHTML(\"beforeend\",el2.outerHTML);\n            })\n        });\n    };\n\n\n\n}\n\nmodule.exports = DOMNodeCollection;\n\n//# sourceURL=webpack:///./src/dom_node_collection.js?");
 
 /***/ })
 

@@ -24,8 +24,10 @@ class DOMNodeCollection {
     }
 
     append(arg) {
-        this.array.forEach((ele, idx) => {
-            ele.innerHTML += arg[idx].outerHTML;
+        this.array.forEach((el1) => {
+            arg.array.forEach(el2=>{
+                el1.insertAdjacentHTML("beforeend",el2.outerHTML);
+            })
         });
     };
 
