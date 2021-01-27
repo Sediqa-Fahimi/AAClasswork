@@ -1,0 +1,11 @@
+.game-board{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin: 0 auto;
+    height: 400px;
+    margin-top: 20%;
+}
+.row{
+    display: flex;
+}

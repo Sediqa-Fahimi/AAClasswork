@@ -15,10 +15,13 @@ class Board extends React.Component{
       const rows = this.props.board.grid.map((row,idx) => {
         return (
           // console.log("inside board row generator return: " + row, idx)
-          <div>
+          <div className="row">
            { row.map(t => {
               return (
-              <Tile />
+                <>
+                  {idx}
+                  <Tile />
+                </>
               )
             })
           }
@@ -26,7 +29,7 @@ class Board extends React.Component{
         )
       });
       return(
-          <div>
+          <div className="game-board">
               {
                 rows 
               }

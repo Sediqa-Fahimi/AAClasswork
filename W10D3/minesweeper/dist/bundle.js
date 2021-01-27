@@ -145,12 +145,16 @@ var Board = /*#__PURE__*/function (_React$Component) {
         return (
           /*#__PURE__*/
           // console.log("inside board row generator return: " + row, idx)
-          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, row.map(function (t) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_tile__WEBPACK_IMPORTED_MODULE_1__["default"], null);
+          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "row"
+          }, row.map(function (t) {
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, idx, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_tile__WEBPACK_IMPORTED_MODULE_1__["default"], null));
           }))
         );
       });
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, rows);
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "game-board"
+      }, rows);
     }
   }]);
 
