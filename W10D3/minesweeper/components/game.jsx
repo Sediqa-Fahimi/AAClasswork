@@ -10,8 +10,14 @@ class Game extends React.Component{
 
   }
 
-  updateGame(){
-    
+  updateGame(tile,flagged){
+    flagged ? toggleFlag() : explore();
+    this.setState({ board: this.state.board });
+
+    if(lost()){
+      
+    }
+
   }
 
   render(){

@@ -235,7 +235,14 @@ var Game = /*#__PURE__*/function (_React$Component) {
 
   _createClass(Game, [{
     key: "updateGame",
-    value: function updateGame() {}
+    value: function updateGame(tile, flagged) {
+      flagged ? toggleFlag() : explore();
+      this.setState({
+        board: this.state.board
+      });
+
+      if (lost()) {}
+    }
   }, {
     key: "render",
     value: function render() {
@@ -337,8 +344,10 @@ var Tile = /*#__PURE__*/function (_React$Component) {
   _createClass(Tile, [{
     key: "handleClick",
     value: function handleClick(e) {
-      this.props.tile.explored = true;
-      var isFlagged = this.props["this"].props.updateGame(this);
+      e.preventDefault();
+      var altKeyPressed = e.altKey;
+      console.log("altKey: " + altKeyPressed);
+      this.props.updateGame(this, altKeyPressed);
     }
   }, {
     key: "render",

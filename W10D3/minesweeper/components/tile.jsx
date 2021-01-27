@@ -8,12 +8,12 @@ class Tile extends React.Component {
 
 
     handleClick(e){
-      this.props.tile.explored = true;
-      let isFlagged = this.props.
-      this.props.updateGame(this, );
-      
+      e.preventDefault();
+      let altKeyPressed = e.altKey;
+      console.log("altKey: " + altKeyPressed);
+      this.props.updateGame(this, altKeyPressed);
     }
-
+    
     render(){
         // debugger
         let explored;
