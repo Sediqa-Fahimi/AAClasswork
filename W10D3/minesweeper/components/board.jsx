@@ -19,7 +19,6 @@ class Board extends React.Component{
            { row.map(t => {
               return (
                 <>
-                  {idx}
                   <Tile />
                 </>
               )
