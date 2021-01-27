@@ -325,25 +325,38 @@ var Tile = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(Tile);
 
   function Tile(props) {
+    var _this;
+
     _classCallCheck(this, Tile);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(Tile, [{
+    key: "handleClick",
+    value: function handleClick(e) {
+      this.props.tile.explored = true;
+      var isFlagged = this.props["this"].props.updateGame(this);
+    }
+  }, {
     key: "render",
     value: function render() {
       // debugger
       var explored;
 
-      if (!this.props.tile.explored) {
-        explored = "unexplored";
-      } else {
-        explored = "explored";
-      }
+      if (this.props.tile.explored) {//if adjacent bombs > 0, show adjacent bombs num 
+        //else show empty string  
+      } else if (this.props.tile.bombed) {// show bomb logo 
+      } else {//unexplored block
+          //if flagged show flag logo flagged ? show flag logo : blank
+        } //end unexplored block
+
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "tile ".concat(this.props.tile.explored ? "explored" : "unexplored")
+        className: "tile ".concat(this.props.tile.explored ? "explored" : "unexplored", "\n                  ").concat(this.props.tile.flagged ? "flagged" : "", "\n                  ").concat(this.props.tile.bombbed ? "bombed" : ""),
+        onClick: this.handleClick
       }));
     }
   }]);
