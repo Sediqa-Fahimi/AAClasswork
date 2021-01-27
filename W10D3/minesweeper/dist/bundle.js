@@ -236,16 +236,22 @@ var Game = /*#__PURE__*/function (_React$Component) {
   _createClass(Game, [{
     key: "updateGame",
     value: function updateGame(tile, flagged) {
-      flagged ? toggleFlag() : explore();
+      flagged ? tile.toggleFlag() : tile.explore();
       this.setState({
         board: this.state.board
       });
-
-      if (lost()) {}
     }
   }, {
     key: "render",
     value: function render() {
+      if (this.state.board.lost()) {
+        alert("you lost");
+      }
+
+      if (this.state.board.won()) {
+        alert("you won!");
+      }
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_board__WEBPACK_IMPORTED_MODULE_2__["default"], {
         board: this.state.board,
         updateGame: this.updateGame
