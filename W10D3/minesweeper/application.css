@@ -10,7 +10,7 @@
     display: flex;
 }
 
-.tile{
+.tile.unexplored{
   height: 20px;
   width: 20px;
   background: lightgray;
@@ -23,4 +23,7 @@
   font-weight: bold;
   position: relative;
   text-align: center;
+}
+.tile.explored{
+  
 }

@@ -333,8 +333,17 @@ var Tile = /*#__PURE__*/function (_React$Component) {
   _createClass(Tile, [{
     key: "render",
     value: function render() {
+      // debugger
+      var explored;
+
+      if (!this.props.tile.explored) {
+        explored = "unexplored";
+      } else {
+        explored = "explored";
+      }
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "tile"
+        className: "tile ".concat(this.props.tile.explored ? "explored" : "unexplored")
       }));
     }
   }]);
@@ -342,7 +351,9 @@ var Tile = /*#__PURE__*/function (_React$Component) {
   return Tile;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (Tile);
+/* harmony default export */ __webpack_exports__["default"] = (Tile); // this.bombed = false;
+// this.explored = false;
+// this.flagged = false;
 
 /***/ }),
 
