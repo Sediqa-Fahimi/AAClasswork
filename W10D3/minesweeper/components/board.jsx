@@ -1,25 +1,25 @@
 import React from 'react';
 import Tile from './tile';
+import * as Minesweeper from './../minesweeper';
 
 class Board extends React.Component{
     constructor(props){
       super(props)
-        // this.gridSize = gridSize;
-        // this.grid = [];
-        // this.numBombs = numBombs;
-        // this.generateBoard();
-        // this.plantBombs();
     }
+
+
     render(){
- 
+      
       const rows = this.props.board.grid.map((row,idx) => {
         return (
           // console.log("inside board row generator return: " + row, idx)
-          <div className="row">
-           { row.map(t => {
+          <div className="row" key={idx}>
+           { row.map((tile,i) => {
               return (
                 <>
-                  <Tile />
+                  <Tile key={i} 
+                        tile={tile} 
+                        updateGame={this.props.updateGame}/>
                 </>
               )
             })

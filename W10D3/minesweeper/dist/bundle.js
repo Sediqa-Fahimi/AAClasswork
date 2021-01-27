@@ -98,6 +98,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _tile__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tile */ "./components/tile.jsx");
+/* harmony import */ var _minesweeper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../minesweeper */ "./minesweeper.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -123,6 +124,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var Board = /*#__PURE__*/function (_React$Component) {
   _inherits(Board, _React$Component);
 
@@ -131,24 +133,27 @@ var Board = /*#__PURE__*/function (_React$Component) {
   function Board(props) {
     _classCallCheck(this, Board);
 
-    return _super.call(this, props); // this.gridSize = gridSize;
-    // this.grid = [];
-    // this.numBombs = numBombs;
-    // this.generateBoard();
-    // this.plantBombs();
+    return _super.call(this, props);
   }
 
   _createClass(Board, [{
     key: "render",
     value: function render() {
+      var _this = this;
+
       var rows = this.props.board.grid.map(function (row, idx) {
         return (
           /*#__PURE__*/
           // console.log("inside board row generator return: " + row, idx)
           react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "row"
-          }, row.map(function (t) {
-            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_tile__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+            className: "row",
+            key: idx
+          }, row.map(function (tile, i) {
+            return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_tile__WEBPACK_IMPORTED_MODULE_1__["default"], {
+              key: i,
+              tile: tile,
+              updateGame: _this.props.updateGame
+            }));
           }))
         );
       });
@@ -322,15 +327,14 @@ var Tile = /*#__PURE__*/function (_React$Component) {
   function Tile(props) {
     _classCallCheck(this, Tile);
 
-    return _super.call(this, props); // this.board = board;
-    // this.pos = pos;
+    return _super.call(this, props);
   }
 
   _createClass(Tile, [{
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        "class": "tile"
+        className: "tile"
       }));
     }
   }]);
