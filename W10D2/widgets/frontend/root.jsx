@@ -3,8 +3,9 @@ import Clock from "./clock";
 import Tabs from "./tabs";
 import Weather from './weather';
 import Autocomplete from './autocomplete';
+
 const list = ["Mary", "Josh", "Katie", "Sam","Mark"]
-const Root = (props) => {
+const Root = () => {
     return (<div>
                 <Clock />
                 <Tabs array={[{"title": 'one',"content": 'I am the first'},
