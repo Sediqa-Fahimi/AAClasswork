@@ -1,11 +1,11 @@
 import React from 'react';
 
 class Tile extends React.Component {
+
     constructor(props){
       super(props);
       this.handleClick = this.handleClick.bind(this);
     }
-
 
     handleClick(e){
       e.preventDefault();
@@ -15,36 +15,26 @@ class Tile extends React.Component {
     }
     
     render(){
-        // debugger
         let logo;
-        debugger
         if(this.props.tile.explored){
           this.props.tile.bombed ? logo = "\u{1F4A3}" : logo; 
-          debugger
            //if adjacent bombs > 0, show adjacent bombs num 
-           //else show empty string  
-        } else if (this.props.tile.flagged){ //unexplored block
+           //else show ...
+        } else if (this.props.tile.flagged){
           logo = "\u{1f6A9}";
-          //show flag logo flagged ? show flag logo : blank
-        } //end unexplored block
+        } 
         return (
             <>
                 <div className={`tile ${this.props.tile.explored ? "explored" : "unexplored"}
                   ${this.props.tile.flagged ? "flagged" : ""}
                   ${this.props.tile.bombed ? "bombed" : ""}`}
                   onClick = {this.handleClick}
-                  >
-                    {logo} 
-                  </div>
+                  >{logo}</div>
             </>
         )
     }
 }
 
 export default Tile;
-
-// this.bombed = false;
-// this.explored = false;
-// this.flagged = false;
 
 

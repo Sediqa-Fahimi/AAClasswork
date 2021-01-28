@@ -1,6 +1,7 @@
 import React from 'react';
 import * as Minesweeper from './../minesweeper';
 import Board from './board';
+
 class Game extends React.Component{
 
   constructor(props){
@@ -22,12 +23,10 @@ class Game extends React.Component{
   
   render(){
     if(this.state.board.lost()){
-      debugger
       alert("you lost");
     }
 
     if (this.state.board.won()){
-      debugger
       alert("you won!");
     }
 
@@ -43,11 +42,3 @@ class Game extends React.Component{
 }
 
 export default Game;
-
-// constructor(gridSize, numBombs) {
-//   this.gridSize = gridSize;
-//   this.grid = [];
-//   this.numBombs = numBombs;
-//   this.generateBoard();
-//   this.plantBombs();
-// }
