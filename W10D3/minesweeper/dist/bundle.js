@@ -366,14 +366,16 @@ var Tile = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       // debugger
-      var explored;
+      var logo;
 
       if (this.props.tile.explored) {//if adjacent bombs > 0, show adjacent bombs num 
         //else show empty string  
-      } else if (this.props.tile.bombed) {// show bomb logo 
-      } else {//unexplored block
-          //if flagged show flag logo flagged ? show flag logo : blank
-        } //end unexplored block
+      } else if (this.props.tile.bombed) {
+        logo = "\uD83D\uDCA3"; // show bomb logo 
+      } else if (this.props.tile.flagged) {
+        //unexplored block
+        logo = "\uD83D\uDEA9"; //show flag logo flagged ? show flag logo : blank
+      } //end unexplored block
 
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

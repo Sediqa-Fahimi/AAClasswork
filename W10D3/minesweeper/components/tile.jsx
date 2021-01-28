@@ -16,14 +16,16 @@ class Tile extends React.Component {
     
     render(){
         // debugger
-        let explored;
+        let logo;
         if(this.props.tile.explored){
            //if adjacent bombs > 0, show adjacent bombs num 
            //else show empty string  
         } else if (this.props.tile.bombed){
+          logo = "\u{1F4A3}";
             // show bomb logo 
-        }else{ //unexplored block
-          //if flagged show flag logo flagged ? show flag logo : blank
+        } else if (this.props.tile.flagged){ //unexplored block
+          logo = "\u{1f6A9}";
+          //show flag logo flagged ? show flag logo : blank
         } //end unexplored block
         return (
             <>
