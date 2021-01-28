@@ -20,20 +20,30 @@ const todosReducer = (state = initialState,action)=>{
 
     Object.freeze(state);
     const nextState = Object.assign({},state);
-    
+    // debugger
     switch (action.type){
         case RECEIVE_TODOS:
+            const newState = {}
+
             action.todos.forEach(obj=>{
-                nextState[obj.id] = obj;
+                // nextState[obj.id] = obj;
+                newState[obj.id] = obj;
             })
-            return nextState;
+            return newState;
         case RECEIVE_TODO:
             nextState[action.todo.id] = action.todo;
             return nextState;
         case REMOVE_TODO:
             const idx = action.todo.id;
-            delete nextState[idx];
-            return nextState;
+            if (idx){
+                delete nextState[idx];
+                return nextState;
+            }
+            else{
+                //do you error function here
+                return nextState;
+            }
+            
         default:
             return state;
     }
