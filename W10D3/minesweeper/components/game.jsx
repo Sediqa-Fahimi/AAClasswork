@@ -22,10 +22,12 @@ class Game extends React.Component{
   
   render(){
     if(this.state.board.lost()){
+      debugger
       alert("you lost");
     }
 
     if (this.state.board.won()){
+      debugger
       alert("you won!");
     }
 

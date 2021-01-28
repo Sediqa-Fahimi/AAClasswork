@@ -252,10 +252,12 @@ var Game = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       if (this.state.board.lost()) {
+        debugger;
         alert("you lost");
       }
 
       if (this.state.board.won()) {
+        debugger;
         alert("you won!");
       }
 
@@ -367,11 +369,12 @@ var Tile = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       // debugger
       var logo;
+      debugger;
 
-      if (this.props.tile.explored) {//if adjacent bombs > 0, show adjacent bombs num 
+      if (this.props.tile.explored) {
+        this.props.tile.bombed ? logo = "\uD83D\uDCA3" : logo;
+        debugger; //if adjacent bombs > 0, show adjacent bombs num 
         //else show empty string  
-      } else if (this.props.tile.bombed) {
-        logo = "\uD83D\uDCA3"; // show bomb logo 
       } else if (this.props.tile.flagged) {
         //unexplored block
         logo = "\uD83D\uDEA9"; //show flag logo flagged ? show flag logo : blank
