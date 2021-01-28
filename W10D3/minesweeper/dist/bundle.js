@@ -236,7 +236,14 @@ var Game = /*#__PURE__*/function (_React$Component) {
   _createClass(Game, [{
     key: "updateGame",
     value: function updateGame(tile, flagged) {
-      flagged ? tile.toggleFlag() : tile.explore();
+      console.log("tile: " + tile);
+
+      if (flagged) {
+        tile.toggleFlag();
+      } else {
+        tile.explore();
+      }
+
       this.setState({
         board: this.state.board
       });
@@ -353,7 +360,7 @@ var Tile = /*#__PURE__*/function (_React$Component) {
       e.preventDefault();
       var altKeyPressed = e.altKey;
       console.log("altKey: " + altKeyPressed);
-      this.props.updateGame(this, altKeyPressed);
+      this.props.updateGame(this.props.tile, altKeyPressed);
     }
   }, {
     key: "render",
@@ -370,9 +377,9 @@ var Tile = /*#__PURE__*/function (_React$Component) {
 
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "tile ".concat(this.props.tile.explored ? "explored" : "unexplored", "\n                  ").concat(this.props.tile.flagged ? "flagged" : "", "\n                  ").concat(this.props.tile.bombbed ? "bombed" : ""),
+        className: "tile ".concat(this.props.tile.explored ? "explored" : "unexplored", "\n                  ").concat(this.props.tile.flagged ? "flagged" : "", "\n                  ").concat(this.props.tile.bombed ? "bombed" : ""),
         onClick: this.handleClick
-      }));
+      }, logo));
     }
   }]);
 

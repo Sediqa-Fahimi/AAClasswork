@@ -10,7 +10,13 @@ class Game extends React.Component{
   }
 
   updateGame(tile,flagged){
-    flagged ? tile.toggleFlag() : tile.explore();
+    console.log("tile: " + tile);
+    if(flagged){
+      tile.toggleFlag();
+    }else {
+      tile.explore();
+    }
+
     this.setState({ board: this.state.board });   
   }
   

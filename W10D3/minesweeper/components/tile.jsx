@@ -11,7 +11,7 @@ class Tile extends React.Component {
       e.preventDefault();
       let altKeyPressed = e.altKey;
       console.log("altKey: " + altKeyPressed);
-      this.props.updateGame(this, altKeyPressed);
+      this.props.updateGame(this.props.tile, altKeyPressed);
     }
     
     render(){
@@ -29,9 +29,11 @@ class Tile extends React.Component {
             <>
                 <div className={`tile ${this.props.tile.explored ? "explored" : "unexplored"}
                   ${this.props.tile.flagged ? "flagged" : ""}
-                  ${this.props.tile.bombbed ? "bombed" : ""}`}
+                  ${this.props.tile.bombed ? "bombed" : ""}`}
                   onClick = {this.handleClick}
-                  ></div>
+                  >
+                    {logo} 
+                  </div>
             </>
         )
     }
