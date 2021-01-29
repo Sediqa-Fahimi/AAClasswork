@@ -6,10 +6,36 @@ import { receiveStep, receiveSteps, removeStep } from './actions/step_actions';
 
 import * as TodoActions from './actions/todo_actions'; 
 import Root from './components/root';
+import { allTodos } from './reducers/selectors';
+
+const preLoadedState = {
+    todos: {
+        1: {
+            id: 1,
+            title: 'take a shower',
+            body: 'and be clean',
+            done: false
+        }
+    },
+    steps: {
+      1: { // this is the step with id = 1
+        id: 1,
+        title: 'walk to store',
+        done: false,
+        todo_id: 1
+      },
+      2: { // this is the step with id = 2
+        id: 2,
+        title: 'buy soap',
+        done: false,
+        todo_id: 1
+      }
+    }
+};
 
 document.addEventListener('DOMContentLoaded',()=>{
     const root = document.getElementById('root');
-    const store = configureStore();
+    const store = configureStore(preLoadedState);
     ReactDOM.render(<Root store={store}/>, root);
     window.store = store;
     // window.receiveTodo = receiveTodo;
@@ -19,6 +45,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     window.receiveStep = receiveStep;
     window.receiveSteps = receiveSteps;
     window.removeStep = removeStep;
+    window.allTodos = allTodos;
 })
 
 console.log("Webpack is running");
