@@ -5,11 +5,12 @@ import configureStore from './store/store';
 import { receiveStep, receiveSteps, removeStep } from './actions/step_actions';
 
 import * as TodoActions from './actions/todo_actions'; 
+import Root from './components/root';
 
 document.addEventListener('DOMContentLoaded',()=>{
     const root = document.getElementById('root');
-    ReactDOM.render(<h1>Todos App</h1>, root)
     const store = configureStore();
+    ReactDOM.render(<Root store={store}/>, root);
     window.store = store;
     // window.receiveTodo = receiveTodo;
     // window.receiveTodos = receiveTodos;
