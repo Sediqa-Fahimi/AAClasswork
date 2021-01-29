@@ -15,6 +15,12 @@ const preLoadedState = {
             title: 'take a shower',
             body: 'and be clean',
             done: false
+        },
+        2: {
+            id: 2,
+            title: 'Go to the post office',
+            body: 'Write letters',
+            done: false
         }
     },
     steps: {

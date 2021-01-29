@@ -4,3 +4,9 @@ export const allTodos = (state) => {
   return todosArr
 }
 
+
+export const longTitleTodo = (state) => {
+  const todosArr = Object.values(state.todos);
+  return todosArr
+}
+
