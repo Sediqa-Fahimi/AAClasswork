@@ -24,6 +24,16 @@ class TodoForm extends React.Component {
       done: false
     })
   }
+  updateTitle(e){
+    this.setState({
+      title: e.target.value
+    })
+  }
+  updateBody(e){
+    this.setState({
+      body: e.target.value
+    })
+  }
 
   render(){
     return(
@@ -35,8 +45,9 @@ class TodoForm extends React.Component {
         <label>Body: 
           <input type="text" value={this.state.body} onChange={this.updateBody}/>
         </label>
-
+        <input type="submit" value="Create Todo"/>
       </form>
     )
   }
 }
+export default TodoForm;

@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoListItem from './todo_list_item';
+import TodoForm from './../todo_list/todo_form';
 
 const TodoList = (props) => {
     return (
@@ -9,10 +10,11 @@ const TodoList = (props) => {
                 {props.todos.map(todo=>{
                     // return <li key={todo.id}>Todo: {todo.title}</li>
                   return (
-                    <TodoListItem todo={todo} key={todo.id}/>
+                        <TodoListItem todo={todo} key={todo.id}/>
                   )
                 })}
             </ul>
+            <TodoForm receiveTodo={props.receiveTodo}/>
         </div>
     )
 }
