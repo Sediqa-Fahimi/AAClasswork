@@ -18,8 +18,8 @@ const preLoadedState = {
         },
         2: {
             id: 2,
-            title: 'Go to the post office',
-            body: 'Write letters',
+            title: 'go to the post office',
+            body: 'write letters',
             done: false
         }
     },
