@@ -7,6 +7,8 @@ import { receiveStep, receiveSteps, removeStep } from './actions/step_actions';
 import * as TodoActions from './actions/todo_actions'; 
 import Root from './components/root';
 import { allTodos } from './reducers/selectors';
+import { fetchTodos } from './util/todo_api_util';
+
 
 const preLoadedState = {
     todos: {
@@ -52,6 +54,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     window.receiveSteps = receiveSteps;
     window.removeStep = removeStep;
     window.allTodos = allTodos;
+    window.fetchTodos = fetchTodos;
 })
 
 console.log("Webpack is running");
