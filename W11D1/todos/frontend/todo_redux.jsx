@@ -10,40 +10,40 @@ import { allTodos } from './reducers/selectors';
 import { fetchTodos } from './util/todo_api_util';
 
 
-const preLoadedState = {
-    todos: {
-        1: {
-            id: 1,
-            title: 'take a shower',
-            body: 'and be clean',
-            done: false
-        },
-        2: {
-            id: 2,
-            title: 'go to the post office',
-            body: 'write letters',
-            done: false
-        }
-    },
-    steps: {
-      1: { // this is the step with id = 1
-        id: 1,
-        title: 'walk to store',
-        done: false,
-        todo_id: 1
-      },
-      2: { // this is the step with id = 2
-        id: 2,
-        title: 'buy soap',
-        done: false,
-        todo_id: 1
-      }
-    }
-};
+// const preLoadedState = {
+//     todos: {
+//         1: {
+//             id: 1,
+//             title: 'take a shower',
+//             body: 'and be clean',
+//             done: false
+//         },
+//         2: {
+//             id: 2,
+//             title: 'go to the post office',
+//             body: 'write letters',
+//             done: false
+//         }
+//     },
+//     steps: {
+//       1: { // this is the step with id = 1
+//         id: 1,
+//         title: 'walk to store',
+//         done: false,
+//         todo_id: 1
+//       },
+//       2: { // this is the step with id = 2
+//         id: 2,
+//         title: 'buy soap',
+//         done: false,
+//         todo_id: 1
+//       }
+//     }
+// };
 
 document.addEventListener('DOMContentLoaded',()=>{
     const root = document.getElementById('root');
-    const store = configureStore(preLoadedState);
+    const store = configureStore();
     ReactDOM.render(<Root store={store}/>, root);
     window.store = store;
     // window.receiveTodo = receiveTodo;
