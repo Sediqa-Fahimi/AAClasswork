@@ -4,7 +4,7 @@ class TodoForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      id: Math.floor(Math.random() * 1000),
+      // id: Math.floor(Math.random() * 1000),
       title: '',
       body: '',
       done: false
@@ -16,13 +16,17 @@ class TodoForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.receiveTodo(this.state);
-    this.setState({
-      id: Math.floor(Math.random() * 1000),
+    // this.props.receiveTodo(this.state);
+    this.props.createTodo(this.state).then(()=>this.setState({
       title: '',
-      body: '',
-      done: false
-    })
+      body: ''
+    }));
+    // this.setState({
+    //   id: Math.floor(Math.random() * 1000),
+    //   title: '',
+    //   body: '',
+    //   done: false
+    // })
   }
   updateTitle(e){
     this.setState({
