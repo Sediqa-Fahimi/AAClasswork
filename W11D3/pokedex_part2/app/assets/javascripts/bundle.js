@@ -424,8 +424,6 @@ var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_pokemon_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../actions/pokemon_actions */ "./frontend/actions/pokemon_actions.js");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 var itemsReducer = function itemsReducer() {
@@ -435,13 +433,7 @@ var itemsReducer = function itemsReducer() {
 
   switch (action.type) {
     case _actions_pokemon_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_POKEMON"]:
-      // return Object.assign({}, state, action.payload.items);
-      // const nextState = Object.assign({}, state);
-      // nextState[] = action.payload.items;
-      // return nextState;
-      var newTodo = _defineProperty({}, action.todo.id, action.todo);
-
-      return merge({}, state, newTodo);
+      return Object.assign({}, action.payload.items, state);
 
     default:
       return state;
@@ -572,7 +564,7 @@ var fetchAllPokemon = function fetchAllPokemon() {
 var fetchPokemon = function fetchPokemon(id) {
   return $.ajax({
     method: "GET",
-    url: "/api/pokemon/:".concat(id)
+    url: "/api/pokemon/".concat(id)
   });
 };
 
