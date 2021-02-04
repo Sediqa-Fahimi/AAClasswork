@@ -26,13 +26,13 @@ class Signup extends React.Component{
                 <h2>Sign Up!</h2>
                 <form>
                     <label>Username:
-                        <input type="text" value={this.state.username} onchange={this.handleInput('username')}/>
+                        <input type="text" value={this.state.username} onChange={this.handleInput('username')}/>
                     </label>
                     <label>email:
-                        <input type="text" value={this.state.email} onchange={this.handleInput('email')}/>
+                        <input type="text" value={this.state.email} onChange={this.handleInput('email')}/>
                     </label>
                     <label>Password:
-                        <input type="password" value={this.state.password} onchange={this.handleInput('password')}/>
+                        <input type="password" value={this.state.password} onChange={this.handleInput('password')}/>
                     </label>
                     <button onClick={this.handleSubmit}>Sign Up</button>
                 </form>
