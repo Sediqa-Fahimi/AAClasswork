@@ -1266,7 +1266,7 @@ var postUser = exports.postUser = function postUser(user) {
     });
 };
 var postSession = exports.postSession = function postSession(user) {
-    $.ajax({
+    return $.ajax({
         method: 'POST',
         url: '/api/session',
         data: { user: user }
@@ -1274,7 +1274,7 @@ var postSession = exports.postSession = function postSession(user) {
 };
 
 var deleteSession = exports.deleteSession = function deleteSession() {
-    $.ajax({
+    return $.ajax({
         url: '/api/session',
         method: 'DELETE'
     });
