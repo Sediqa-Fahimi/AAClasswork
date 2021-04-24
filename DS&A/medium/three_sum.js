@@ -1,4 +1,4 @@
-// O(n^2) T | O(N) S
+// O(n^2) Time | O(N) Space
 function threeNumberSum(array, targetSum) {
 	array.sort((a,b) => a-b);
     const results = [];

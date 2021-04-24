@@ -12,3 +12,34 @@ function twoNumberSum(array, targetSum) {
 	return [];
 }
 
+//O(N) Time | O(N) space
+function twoNumberSum(array, targetSum) {
+  const numbers = {};
+	for(const num of array){
+		const otherNum = targetSum - num;
+		if(otherNum in numbers){
+			return [num, otherNum];
+		}else{
+			numbers[num] = true;
+		}
+	}
+	return [];
+}
+
+//O(nlogn) Time | O(1) Space
+function twoNumberSum(array, targetSum) {
+	array.sort((a,b) => a-b);
+	let left = 0;
+	let right = array.length - 1;
+	while(left < right){
+		const currentSum = array[left] + array[right];
+		if(currentSum === targetSum){
+			return [array[left], array[right]];
+		}else if(currentSum < targetSum){
+			left++;
+		}else if(currentSum > targetSum){
+			right--;
+		}
+	}
+	return [];
+}
