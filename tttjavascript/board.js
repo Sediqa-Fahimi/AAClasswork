@@ -2,8 +2,11 @@
 class Board{
     constructor(size){
         this.size = size;
-        // this.board = Array(size * size).fill(null);
-        this.board = Array(size).fill(Array(size));
+        this.board = Array(size);
+        for(let i = 0; i < this.board.length; i++){
+            this.board[i] = Array(size).fill(null);
+        }
+       
     }
     won(){
         if(!this.winner()) return false;
@@ -23,5 +26,6 @@ class Board{
 }
 const board = new Board(3);
 
-board.place_mark([0,1],'X');
+board.place_mark([2,1],'X');
+board.place_mark([1,1],'X');
 console.log(board.board);
