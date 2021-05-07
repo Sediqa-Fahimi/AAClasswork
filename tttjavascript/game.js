@@ -1,8 +1,7 @@
 const Board = require('./board.js');
 
 class Game{
-    constructor(reader, size){
-        this.reader = reader;
+    constructor(size){
         this.board = new Board(size);
         this.currentPlayer = 'X';
     }
@@ -15,25 +14,40 @@ class Game{
     over(){
         return this.board.full();
     }
-    winner(){
-        return this.currentPlayer;
+  
+    playMove(pos){
+        this.board.place_mark(pos,this.currentPlayer);
     }
-    play(){
-       
-        this.switchTurn();;
-        console.log(this.currentPlayer + `'s turn`);
+    prompMove(reader, callback){
         this.board.print_board();
-        let pos;
-        this.reader.question('enter your position, ex: 0 2 : ', (input)=> {
-            pos = input.split(' ').map(num => parseInt(num));
-            this.board.place_mark(pos,this.currentPlayer);
-        })
-    
-    }
-    
-    // run(reader, completionCallback){
+        console.log(`Current Turn: ${this.currentPlayer}`);
 
-    // }
+        reader.question('Enter rowIdx: ', rowIdxStr => {
+            const rowIdx = parseInt(rowIdxStr);
+            reader.question('Enter colIdx: ', colIdxStr => {
+                const colIdx = parseInt(colIdxStr);
+                callback([rowIdx, colIdx]);
+            });
+        });
+    }
+    run(reader, completionCallback){
+        this.prompMove(reader, pos => {
+            this.playMove(pos);
+
+            if(this.over()){
+                this.board.print_board();
+                if(this.won()){
+                    console.log(this.currentPlayer + 'has won!!!');
+                }else{
+                    console.log('No winner!');
+                }
+                completionCallback();
+            }else{
+                this.switchTurn();
+                this.run(reader, completionCallback);
+            }
+        })
+    }
 }
 
 module.exports = Game;

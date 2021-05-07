@@ -17,6 +17,7 @@ class Board{
         return this.horizontally() || this.vertically() || this.diagonally();
     }
     full(){
+        if(this.winner()) return true;
         return this.board.every(subArr => subArr.every(el => el !== null));
     }
     empty(pos){
@@ -68,18 +69,4 @@ class Board{
 }
 
 module.exports = Board;
-// const board = new Board(3);
-// // console.log(board.print_board());
-// board.place_mark([0,0],'O');
-// board.place_mark([0,1],'X');
-// board.place_mark([0,2],'X');
-// board.place_mark([1,0],'X');
-// // board.place_mark([1,1],'O');
-// board.place_mark([1,2],'O');
-// board.place_mark([2,0],'O');
-// board.place_mark([2,1],'X');
-// board.place_mark([2,2],'X');
-// // console.log(board.print_board());
 
-// console.log(board.full());
-// console.log(board.won());
