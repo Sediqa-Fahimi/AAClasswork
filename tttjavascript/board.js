@@ -1,4 +1,3 @@
-
 class Board{
     constructor(size){
         this.size = size;
@@ -7,12 +6,18 @@ class Board{
             this.board[i] = Array(size).fill(null);
         }
     }
+    print_board(){
+        this.board.forEach(subArr => console.log(subArr));
+    }
     won(){
         if(this.winner()) return true;
         return false;
     }
     winner(){
         return this.horizontally() || this.vertically() || this.diagonally();
+    }
+    full(){
+        return this.board.every(subArr => subArr.every(el => el !== null));
     }
     empty(pos){
         return this.board[pos[0]][pos[1]] === null;
@@ -61,16 +66,20 @@ class Board{
         return leftToRight() || rightToLeft();
     }
 }
-const board = new Board(3);
 
-board.place_mark([0,0],'O');
-board.place_mark([0,1],'X');
-board.place_mark([0,2],'X');
-board.place_mark([1,0],'X');
-board.place_mark([1,1],'O');
-board.place_mark([1,2],'O');
-board.place_mark([2,0],'O');
-board.place_mark([2,1],'X');
-board.place_mark([2,2],'X');
-console.log(board.board);
-console.log(board.won());
+module.exports = Board;
+// const board = new Board(3);
+// // console.log(board.print_board());
+// board.place_mark([0,0],'O');
+// board.place_mark([0,1],'X');
+// board.place_mark([0,2],'X');
+// board.place_mark([1,0],'X');
+// // board.place_mark([1,1],'O');
+// board.place_mark([1,2],'O');
+// board.place_mark([2,0],'O');
+// board.place_mark([2,1],'X');
+// board.place_mark([2,2],'X');
+// // console.log(board.print_board());
+
+// console.log(board.full());
+// console.log(board.won());
