@@ -42,7 +42,7 @@ class Board {
         while(this.numShips() < totalShips){
             const row = Math.floor(Math.random() * this.grid.length);
             const col = Math.floor(Math.random() * this.grid.length);
-            this.set([row, col]) = 'S';
+            this.set([row, col], 'S');
         }
     }
     hiddenShipsGrid(){
