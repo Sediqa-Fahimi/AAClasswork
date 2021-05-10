@@ -39,12 +39,43 @@ class Board {
     }
     placeRandomShips(){
         const totalShips = Math.ceil(this.size * 0.25);
-        for(let i = 0; i < totalShips; i++){
+        while(this.numShips() < totalShips){
             const row = Math.floor(Math.random() * this.grid.length);
             const col = Math.floor(Math.random() * this.grid.length);
             this.set([row, col]) = 'S';
         }
     }
+    hiddenShipsGrid(){
+        return this.deepCopy(this.grid);
+    }
+    deepCopy(grid){
+        const newGrid = [];
+        for(const ele of grid){
+            if(Array.isArray(ele)){
+                newGrid.push(this.deepCopy(ele));
+            }else{
+                if(ele === 'S') {
+                    newGrid.push('N');
+                }else{
+                    newGrid.push(ele);
+                }
+
+            }
+        }
+        return newGrid;
+    }
+    static printGrid(grid){
+        for(const subArray of grid){
+            console.log(subArray.join('  '));
+        }
+    }
+    print(){
+        Board.printGrid(this.hiddenShipsGrid());
+    }
+    cheat(){
+        Board.printGrid(this.grid);
+    }
+
 }
 
 module.exports = Board;
