@@ -179,6 +179,15 @@ function fileFinder(directories, targetFile) {
     return result;
 }
 
+function fileFinder(directories, targetFile) {
+    for(let dir in directories){
+        if(dir === targetFile || fileFinder(directories[dir],targetFile) === true ){
+            return true;
+        }
+    }
+    return false;
+}
+
 
 // Write another function, pathFinder(directories, targetFile), that returns the path that contains the targetFile.
 // If the targetFile is not found in the directories, then return null.
@@ -190,7 +199,16 @@ function fileFinder(directories, targetFile) {
 // pathFinder(desktop, 'everlong.flac'));       // => '/music/genres/rock/everlong.flac'
 // pathFinder(desktop, 'honeybadger.png'));     // => null
 function pathFinder(directories, targetFile) {
-
+    for(let dir in directories){
+        if(dir === targetFile){
+            return '/' + dir;
+        }
+        let path = pathFinder(directories[dir], targetFile);
+        if(path){
+            return dir + path;
+        }
+    }
+    return null;
 }
 
 
