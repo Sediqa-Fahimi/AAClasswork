@@ -81,7 +81,7 @@ function pow(base, exponent) {
     if(exponent === 0) return 1;
     if(exponent === 1) return base;
     if(exponent < 0){
-        return 1 / (base * pow(base, Math.abs(exponent) - 1));
+        return 1 / (pow(base, Math.abs(exponent)));
     }else if(exponent > 1){
         return base * pow(base, exponent - 1);
     }
@@ -166,7 +166,17 @@ function flatten(data) {
 // fileFinder(desktop, 'everlong.flac');            // => true
 // fileFinder(desktop, 'sequoia.jpeg');             // => false
 function fileFinder(directories, targetFile) {
-
+    
+    let result = false;
+    for(let key in directories){
+        if(!key.startsWith('/')){
+            if(key === targetFile) return true;
+            continue;
+        }
+        result = fileFinder(directories[key], targetFile);
+        if(result) return true;
+    }
+    return result;
 }
 
 
