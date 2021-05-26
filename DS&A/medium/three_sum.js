@@ -1,22 +1,23 @@
 // O(n^2) Time | O(N) Space
 function threeNumberSum(array, targetSum) {
-	array.sort((a,b) => a-b);
-    const results = [];
+  array.sort((a,b) => a-b);
+	const triplets = [];
 	for(let i = 0; i < array.length - 2; i++){
-		let firstNum = i+1;
-		let lastNum = array.length-1;
-		while(firstNum < lastNum){
-			const currentSum = array[i] + array[firstNum] + array[lastNum];
+		let left = i + 1;
+		let right = array.length - 1;
+		
+		while(left < right){
+			currentSum = array[i] + array[left] + array[right];
 			if(currentSum === targetSum){
-				results.push([array[i], array[firstNum], array[lastNum]]);
-				firstNum++;
-				lastNum--;
+				triplets.push([array[i], array[left], array[right]]);
+				left++;
+				right--;
 			}else if(currentSum > targetSum){
-				lastNum--;
+				right--;
 			}else if(currentSum < targetSum){
-				firstNum++;
+				left++;
 			}
 		}
 	}
-	return results;
+	return triplets;
 }

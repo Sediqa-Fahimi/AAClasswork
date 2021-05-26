@@ -16,9 +16,9 @@ function twoNumberSum(array, targetSum) {
 function twoNumberSum(array, targetSum) {
   const numbers = {};
 	for(const num of array){
-		const otherNum = targetSum - num;
-		if(otherNum in numbers){
-			return [num, otherNum];
+		const targetNum = targetSum - num;
+		if(numbers[targetNum]){
+			return [targetNum, num];
 		}else{
 			numbers[num] = true;
 		}
